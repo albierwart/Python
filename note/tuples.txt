@@ -1,0 +1,88 @@
+ LES TUPLES (tuple)
+ 
+ Les tuples sont des listes immuables : une fois créés, on ne peut plus les modifier.
+ 
+ 2.1 Créer un tuple
+ 
+ # Différentes façons
+    tuple_vide = ()
+    tuple_vide = tuple()
+
+    coordonnees = (10, 20)
+    coordonnees = 10, 20  # Les parenthèses sont optionnelles
+
+    point = (10,)  # Tuple avec un seul élément (la virgule est obligatoire !)
+    pas_un_tuple = (10)  # C'est juste un entier !
+
+# Tuple avec différents types
+    personne = ("Alice", 25, 1.65, True)
+
+2.2 Accéder aux éléments (comme les listes)
+
+    coordonnees = (10, 20, 30)
+
+    print(coordonnees[0])    # 10
+    print(coordonnees[-1])   # 30
+
+# Slicing aussi possible
+    print(coordonnees[1:3])  # (20, 30)
+    
+        # Mais on ne peut PAS modifier
+        # coordonnees[0] = 99    # ERREUR ! TypeError
+
+2.3 Le unpacking (déballage)
+
+# Déballage simple
+    coordonnees = (10, 20)
+    x, y = coordonnees
+    print(x)  # 10
+    print(y)  # 20
+
+# Échanger deux variables (très élégant !)
+    a = 5
+    b = 10
+    a, b = b, a  # Maintenant a=10, b=5
+    print(a, b)  # 10 5
+
+# Fonction qui retourne plusieurs valeurs
+    def get_personne():
+        return ("Alice", 25, "Paris")
+
+    nom, age, ville = get_personne()
+    print(nom)   # Alice
+    print(age)   # 25
+    print(ville) # Paris
+
+# Ignorer certaines valeurs avec _
+    nom, _, ville = get_personne()
+    print(nom, ville)  # Alice Paris (l'âge est ignoré)
+
+# Déballage avec * (prend le reste)
+    nombres = (1, 2, 3, 4, 5)
+    premier, *reste = nombres
+    print(premier)  # 1
+    print(reste)    # [2, 3, 4, 5] (c'est une liste)
+
+    premier, deuxieme, *reste = nombres
+    print(premier)   # 1
+    print(deuxieme)  # 2
+    print(reste)     # [3, 4, 5]
+
+2.4 Quand utiliser un tuple plutôt qu'une liste ?
+
+    # 1. Pour des données qui ne doivent pas changer
+    jours_semaine = ("lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi", "dimanche")
+
+# 2. Comme clé de dictionnaire (les listes ne peuvent pas être clés)
+    dictionnaire = {}
+# dictionnaire[[1, 2]] = "valeur"  # ERREUR !
+    dictionnaire[(1, 2)] = "valeur"     # OK
+
+# 3. Performance : les tuples sont légèrement plus rapides que les listes
+
+# 4. Pour retourner plusieurs valeurs d'une fonction
+    def min_max(liste):
+        return min(liste), max(liste)
+
+    resultat = min_max([1, 5, 3, 9, 2])
+    print(resultat)  # (1, 9)

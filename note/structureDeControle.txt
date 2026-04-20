@@ -1,0 +1,23 @@
+Concept									Syntaxe
+
+Condition simple					if condition:
+
+Condition avec alternative			if condition: ... else: ...
+
+Conditions multiples				if condition: ... elif condition: ... else: ...
+
+Opérateurs logiques					and, or, not
+
+Appartenance						valeur in collection
+
+Boucle while						while condition:
+
+Boucle for (classique)				for i in range(n):
+
+Boucle for (collection)				for element in liste:
+
+Boucle avec index					for i, e in enumerate(liste):
+
+Sortie de boucle					break
+
+Saut d'itération					continue

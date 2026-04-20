@@ -1,0 +1,34 @@
+PARTIE 1 : TEXTE THÉORIQUE
+1. LA BOUCLE 
+
+Boucle									Syntaxe									Quand l'utiliser												Exemple
+
+for element in iterable					for x in liste:							Quand on a besoin uniquement des VALEURS					Parcourir des éléments pour les traiter
+
+for i in range(n)						for i in range(10):						Quand on a besoin d'un COMPTEUR ou de répéter n fois		Exécuter une action 10 fois
+
+for i in range(start, stop)				for i in range(5, 10):					Quand on veut une PLAGE spécifique							Compter de 5 à 9
+
+for i in range(start, stop, step)		for i in range(0, 20, 2):				Quand on veut un PAS personnalisé							Nombres pairs, compte à rebours
+
+for i, valeur in enumerate(liste)		for i, v in enumerate(fruits):			Quand on a besoin des INDEX et des VALEURS					Afficher positions et éléments
+
+for cle in dict:						for k in dico:							Parcourir les CLÉS d'un dictionnaire						Accéder aux clés
+
+for valeur in dict.values():			for v in dico.values():					Parcourir les VALEURS d'un dictionnaire						Traiter les valeurs uniquement
+
+for cle, valeur in dict.items():		for k, v in dico.items():				Parcourir CLÉS et VALEURS d'un dictionnaire					Afficher paires clé-valeur
+
+for a, b in zip(liste1, liste2):		for n, a in zip(noms, ages):			Parcourir PLUSIEURS listes en parallèle						Associer des données liées
+
+for...else								for x in liste:							Quand on veut détecter si une boucle						Recherche avec fallback
+										if condition: break						 s'est terminée SANS break
+										else:	
+										
+[expr for x in iterable]				[x*2 for x in range(5)]					Créer une NOUVELLE liste rapidement							Transformation simple
+
+[expr for x in iterable if cond]		[x for x in liste if x>0]				Créer une liste FILTRÉE										Garder certains éléments
+Boucles imbriquées						for i in range(n):						Parcourir des STRUCTURES MULTIDIMENSIONNELLES				Matrices, tables multiplications
+										for j in range(m):	
+
+while (rappel)							while condition:						Quand on ne connaît pas le NOMBRE D'ITÉRATIONS à l'avance	Saisie utilisateur, jeu, attente condition

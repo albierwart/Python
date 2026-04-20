@@ -1,0 +1,261 @@
+COURS SUR LES FONCTIONS LAMBDA EN PYTHON
+1. QU'EST-CE QU'UNE FONCTION LAMBDA ?
+
+Une fonction lambda est une petite fonction anonyme (sans nom) qui s'écrit sur une seule ligne. Contrairement aux fonctions classiques définies avec def, les lambdas sont conçues pour des opérations simples et rapides.
+2. À QUOI ÇA SERT ?
+
+La fonction lambda sert à créer rapidement une fonction sans avoir à la définir formellement avec def. Elle est parfaite pour les cas où vous avez besoin d'une fonction simple une seule fois, et où lui donner un nom serait superflu.
+3. QUAND UTILISER UNE LAMBDA ?
+
+Utilisez une lambda dans ces situations :
+
+    Avec les fonctions d'ordre supérieur : quand vous devez passer une fonction simple en paramètre (comme avec map(), filter(), sorted())
+
+    Pour des opérations très courtes : quand la logique tient en une seule expression
+
+    Quand vous n'avez pas besoin de réutiliser la fonction ailleurs dans votre code
+
+    Pour rendre votre code plus concis : quand une fonction complète serait trop lourde
+
+N'utilisez PAS de lambda pour :
+
+    Des opérations complexes avec plusieurs instructions
+
+    Du code qui sera réutilisé plusieurs fois
+
+    Des fonctions qui nécessitent une documentation
+
+4. COMMENT CONSTRUIRE UNE LAMBDA ?
+Syntaxe de base :
+text
+
+lambda paramètres: expression
+
+Règles essentielles :
+
+    Le mot-clé lambda obligatoire
+
+    Un ou plusieurs paramètres (séparés par des virgules)
+
+    Deux-points : obligatoires
+
+    Une seule expression (pas d'instruction comme return, if complet, boucles, etc.)
+
+    Le résultat de l'expression est automatiquement retourné
+
+Ce qu'une lambda NE PEUT PAS faire :
+
+    Contenir des boucles (for, while)
+
+    Avoir des instructions multiples (sauf avec l'opérateur virgule ou ternaire)
+
+    Utiliser return explicitement
+
+    Contenir des annotations de type (officiellement)
+
+5. COMMENT FONCTIONNE UNE LAMBDA ?
+
+Une lambda est un objet fonction comme une autre. Elle peut être :
+
+    Stockée dans une variable
+
+    Passée comme argument à une autre fonction
+
+    Retournée par une fonction
+
+    Utilisée immédiatement (lambda immédiate)
+
+EXEMPLES
+Exemple 1 : Syntaxe de base
+python
+
+# Fonction classique
+def multiplier_classique(x, y):
+    return x * y
+
+# Fonction lambda équivalente
+multiplier_lambda = lambda x, y: x * y
+
+# Utilisation
+print(multiplier_lambda(4, 5))  # 20
+
+Exemple 2 : Lambda sans variable (anonyme)
+python
+
+# Utilisation directe sans stocker dans une variable
+print((lambda x: x ** 2)(5))  # 25
+
+# Ceci est une lambda immédiate : on la crée ET on l'appelle tout de suite
+
+Exemple 3 : Avec un seul paramètre
+python
+
+# Doubler un nombre
+double = lambda n: n * 2
+print(double(7))  # 14
+
+# Mettre en majuscule
+maj = lambda texte: texte.upper()
+print(maj("bonjour"))  # BONJOUR
+
+Exemple 4 : Avec plusieurs paramètres
+python
+
+# Calculer l'aire d'un rectangle
+aire = lambda longueur, largeur: longueur * largeur
+print(aire(5, 3))  # 15
+
+# Concaténer trois chaînes
+concatener = lambda a, b, c: a + " " + b + " " + c
+print(concatener("Je", "suis", "là"))  # Je suis là
+
+Exemple 5 : Avec map() - Application la plus courante
+python
+
+# Transformer tous les éléments d'une liste
+nombres = [1, 2, 3, 4, 5]
+
+# Élever chaque nombre au carré
+carres = list(map(lambda x: x ** 2, nombres))
+print(carres)  # [1, 4, 9, 16, 25]
+
+# Convertir une liste de strings en entiers
+strings = ["10", "20", "30"]
+entiers = list(map(lambda s: int(s), strings))
+print(entiers)  # [10, 20, 30]
+
+Exemple 6 : Avec filter() - Filtrer des éléments
+python
+
+nombres = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+# Garder uniquement les nombres pairs
+pairs = list(filter(lambda x: x % 2 == 0, nombres))
+print(pairs)  # [2, 4, 6, 8, 10]
+
+# Garder les mots de plus de 3 lettres
+mots = ["chat", "chien", "rat", "éléphant", "souris"]
+longs = list(filter(lambda mot: len(mot) > 4, mots))
+print(longs)  # ['chien', 'éléphant', 'souris']
+
+Exemple 7 : Avec sorted() - Personnaliser le tri
+python
+
+# Trier par la longueur des mots
+mots = ["python", "java", "c", "javascript", "go"]
+tri = sorted(mots, key=lambda mot: len(mot))
+print(tri)  # ['c', 'go', 'java', 'python', 'javascript']
+
+# Trier des tuples par le deuxième élément
+points = [(1, 5), (3, 2), (4, 8), (2, 1)]
+tri = sorted(points, key=lambda tuple: tuple[1])
+print(tri)  # [(2, 1), (3, 2), (1, 5), (4, 8)]
+
+Exemple 8 : Expression conditionnelle ternaire dans une lambda
+python
+
+# Lambda avec un "if" sur une seule ligne (opérateur ternaire)
+absolu = lambda x: x if x >= 0 else -x
+print(absolu(5))   # 5
+print(absolu(-3))  # 3
+
+# Déterminer si un nombre est pair ou impair
+parite = lambda n: "pair" if n % 2 == 0 else "impair"
+print(parite(4))  # pair
+print(parite(7))  # impair
+
+Exemple 9 : Avec reduce() - Accumuler des valeurs
+python
+
+from functools import reduce
+
+# Calculer le produit de tous les nombres
+nombres = [1, 2, 3, 4, 5]
+produit = reduce(lambda a, b: a * b, nombres)
+print(produit)  # 120 (1*2*3*4*5)
+
+# Concaténer tous les mots
+mots = ["Python", "est", "génial"]
+phrase = reduce(lambda a, b: a + " " + b, mots)
+print(phrase)  # Python est génial
+
+Exemple 10 : Lambda dans une liste (fonctions dynamiques)
+python
+
+# Créer une liste d'opérations mathématiques
+operations = [
+    lambda x: x + 1,      # incrément
+    lambda x: x * 2,      # double
+    lambda x: x ** 2      # carré
+]
+
+nombre = 5
+for op in operations:
+    print(op(nombre))
+# Affiche : 6, 10, 25
+
+Exemple 11 : Retourner une lambda depuis une fonction
+python
+
+def creer_multiplieur(facteur):
+    return lambda x: x * facteur
+
+double = creer_multiplieur(2)
+triple = creer_multiplieur(3)
+
+print(double(5))  # 10
+print(triple(5))  # 15
+
+Exemple 12 : Comparaison avec def - Quand choisir ?
+python
+
+# CAS 1 : Opération simple et unique → lambda
+resultats = list(map(lambda x: x * 1.2, [10, 20, 30]))
+
+# CAS 2 : Opération complexe ou réutilisable → def
+def calculer_avec_taxe(prix):
+    """Calcule le prix TTC avec une logique métier complexe"""
+    if prix < 100:
+        taxe = 0.2
+    else:
+        taxe = 0.1
+    return prix * (1 + taxe)
+
+resultats = list(map(calculer_avec_taxe, [50, 150, 200]))
+
+Exemple 13 : Lambda avec min() et max()
+python
+
+# Trouver le mot le plus long
+mots = ["python", "java", "javascript", "c++"]
+plus_long = max(mots, key=lambda mot: len(mot))
+print(plus_long)  # javascript
+
+# Trouver la personne la plus jeune
+personnes = [("Alice", 25), ("Bob", 30), ("Charlie", 20)]
+plus_jeune = min(personnes, key=lambda p: p[1])
+print(plus_jeune)  # ('Charlie', 20)
+
+RÉSUMÉ DES BONNES PRATIQUES
+Situation	Utiliser lambda	Utiliser def
+Une seule expression simple	✅ Oui	❌ Trop lourd
+Plusieurs instructions	❌ Non	✅ Oui
+Fonction réutilisée souvent	❌ Non	✅ Oui
+Besoin de documentation	❌ Non	✅ Oui
+Passée comme argument	✅ Oui	❌ Peut être trop
+Logique complexe (boucles, try/except)	❌ Non	✅ Oui
+CE QU'IL FAUT RETENIR
+
+    Lambda = fonction jetable et simple pour des opérations courtes
+
+    Ne remplace pas def pour la logique complexe
+
+    Très utile avec map(), filter(), sorted()
+
+    Le corps ne peut contenir qu'une seule expression
+
+    Le retour est implicite (pas de mot-clé return)
+
+    À utiliser avec modération pour garder le code lisible
+
+Une lambda bien utilisée rend le code plus concis. Une lambda mal utilisée le rend illisible. La clé est l'équilibre !

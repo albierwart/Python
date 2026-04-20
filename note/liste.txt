@@ -1,0 +1,181 @@
+les listes
+
+list	Ordonnée, modifiable, doublons autorisés
+
+1.1 Créer une liste
+
+    # Liste vide
+    ma_liste = []
+    ma_liste = list()
+
+# Liste avec des valeurs
+    fruits = ["pomme", "banane", "orange"]
+    nombres = [1, 2, 3, 4, 5]
+    mixte = [1, "texte", 3.14, True]  # Python accepte les types mélangés !
+
+# Liste avec répétition
+    zeros = [0] * 5      # [0, 0, 0, 0, 0]
+    repetition = [1, 2] * 3  # [1, 2, 1, 2, 1, 2]
+
+1.2 Accéder aux éléments
+    fruits = ["pomme", "banane", "orange", "kiwi", "mangue"]
+
+# Accès par index (commence à 0)
+    print(fruits[0])    # pomme
+    print(fruits[2])    # orange
+
+# Index négatif (compte à partir de la fin)
+    print(fruits[-1])   # mangue (dernier)
+    print(fruits[-2])   # kiwi (avant-dernier)
+
+# Modifier un élément
+    fruits[1] = "cerise"
+    print(fruits)       # ["pomme", "cerise", "orange", "kiwi", "mangue"]
+
+1.3 Le slicing (trancher une liste)
+
+    le slicing n'est pas une façon de parcourir une liste (boucler), mais c'est une façon d'extraire une sous-liste (une copie d'une partie de la liste).
+
+    fruits = ["pomme", "banane", "orange", "kiwi", "mangue", "raisin"]
+
+# Liste[debut:fin] - fin est EXCLUE
+    print(fruits[1:4])    # ["banane", "orange", "kiwi"] (index 1,2,3)
+
+# Omettre debut = commence au début
+    print(fruits[:3])     # ["pomme", "banane", "orange"]
+
+# Omettre fin = va jusqu'à la fin
+    print(fruits[2:])     # ["orange", "kiwi", "mangue", "raisin"]
+
+# Copie complète d'une liste
+    copie = fruits[:]     # Crée une nouvelle liste indépendante
+
+# Slicing avec pas
+    print(fruits[::2])    # ["pomme", "orange", "mangue"] (un élément sur deux)
+    print(fruits[1::2])   # ["banane", "kiwi", "raisin"]
+
+# Inverser une liste
+    print(fruits[::-1])   # ["raisin", "mangue", "kiwi", "orange", "banane", "pomme"]
+
+1.4 Opérations sur les listes
+
+# Longueur d'une liste
+    fruits = ["pomme", "banane", "orange"]
+    print(len(fruits))    # 3
+
+# Concaténation (fusion de listes)
+    liste1 = [1, 2, 3]
+    liste2 = [4, 5, 6]
+    fusion = liste1 + liste2
+    print(fusion)         # [1, 2, 3, 4, 5, 6]
+
+# Vérifier l'existence d'un élément
+    if "banane" in fruits:
+    print("La banane est dans la liste")
+
+    if "cerise" not in fruits:
+    print("La cerise n'est pas dans la liste")
+
+# Parcourir une liste
+    for fruit in fruits:
+    print(fruit)
+
+# Parcourir avec index
+    for i in range(len(fruits)):
+    print(f"{i}: {fruits[i]}")
+
+# Meilleure façon : enumerate
+    for i, fruit in enumerate(fruits):
+    print(f"{i}: {fruit}")
+
+1.5 Méthodes des listes
+
+    fruits = ["pomme", "banane", "orange"]
+
+# Ajouter à la fin
+    fruits.append("kiwi")
+    print(fruits)         # ["pomme", "banane", "orange", "kiwi"]
+
+# Insérer à un index précis
+    fruits.insert(1, "cerise")
+    print(fruits)         # ["pomme", "cerise", "banane", "orange", "kiwi"]
+
+# Étendre avec une autre liste
+    fruits.extend(["mangue", "raisin"])
+    print(fruits)         # ["pomme", "cerise", "banane", "orange", "kiwi", "mangue", "raisin"]
+
+# Supprimer par valeur (première occurrence)
+    fruits.remove("banane")
+    print(fruits)         # ["pomme", "cerise", "orange", "kiwi", "mangue", "raisin"]
+
+# Supprimer par index (pop retourne l'élément supprimé)
+    dernier = fruits.pop()       # Enlève le dernier
+    print(dernier)        # "raisin"
+    print(fruits)         # ["pomme", "cerise", "orange", "kiwi", "mangue"]
+
+    element = fruits.pop(1)      # Enlève l'index 1
+    print(element)        # "cerise"
+    print(fruits)         # ["pomme", "orange", "kiwi", "mangue"]
+
+# Supprimer par index (sans retour)
+    del fruits[0]
+    print(fruits)         # ["orange", "kiwi", "mangue"]
+
+# Vider toute la liste
+    fruits.clear()
+    print(fruits)         # []
+
+# Retrouver l'index d'un élément
+    nombres = [10, 20, 30, 20, 40]
+    index = nombres.index(20)     # Retourne le premier index trouvé
+    print(index)          # 1
+
+# Compter les occurrences
+    compteur = nombres.count(20)
+    print(compteur)       # 2
+
+# Trier (modifie la liste originale)
+    nombres = [3, 1, 4, 1, 5, 9, 2]
+    nombres.sort()        # Tri croissant
+    print(nombres)        # [1, 1, 2, 3, 4, 5, 9]
+
+    nombres.sort(reverse=True)  # Tri décroissant
+    print(nombres)        # [9, 5, 4, 3, 2, 1, 1]
+
+# Inverser l'ordre
+    nombres.reverse()
+    print(nombres)        # [1, 1, 2, 3, 4, 5, 9]
+
+# Fonction sorted() - retourne une nouvelle liste triée
+    originale = [3, 1, 4, 1, 5]
+    triee = sorted(originale)    # originale n'est pas modifiée
+    print(triee)          # [1, 1, 3, 4, 5]
+    print(originale)      # [3, 1, 4, 1, 5]
+
+1.6 Listes imbriquées (matrices)
+
+# Matrice 3x3
+    matrice = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+    ]
+
+# Accéder aux éléments
+    print(matrice[0][0])    # 1
+    print(matrice[1][2])    # 6
+    print(matrice[2][1])    # 8
+
+# Parcourir une matrice
+    for ligne in matrice:
+        for element in ligne:
+            print(element, end=" ")
+        print()  # Nouvelle ligne
+# Affiche :
+# 1 2 3
+# 4 5 6
+# 7 8 9
+
+# Créer une matrice avec des listes en compréhension
+    matrice_identite = [[1 if i == j else 0 for j in range(3)] for i in range(3)]
+    print(matrice_identite)  # [[1, 0, 0], [0, 1, 0], [0, 0, 1]]

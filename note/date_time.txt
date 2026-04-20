@@ -1,0 +1,206 @@
+date 
+from datetime import datetime, date, time, timedelta
+
+maintenant = datetime.now() --> 2026-04-14 15:15:14.165243
+aujourdhui = date.today() --> 2026-04-14
+
+creation a pertir de valeur encodee
+
+    # Créer une date
+    ma_date = date(2026, 4, 14)        # 14 avril 2026
+    print(ma_date)                      # 2026-04-14
+    
+    # Créer une heure
+    mon_heure = time(15, 30, 45)       # 15:30:45
+    print(mon_heure)                    # 15:30:45
+
+    # Créer un datetime
+    mon_datetime = datetime(2026, 4, 14, 15, 30, 45)
+    print(mon_datetime)                 # 2026-04-14 15:30:45
+
+
+Obtenir la date et l'heure actuelles
+    from datetime import datetime, date
+
+    # Date et heure complètes
+    maintenant = datetime.now()
+    print(maintenant)           # 2026-04-14 15:30:45.123456
+
+# Date seulement
+    aujourdhui = date.today()
+    print(aujourdhui)           # 2026-04-14
+
+# Heure seulement (à partir de datetime.now())
+    heure_actuelle = datetime.now().time()
+    print(heure_actuelle)       # 15:30:45.123456
+
+# Timestamp (secondes depuis le 1er janvier 1970)
+    timestamp = datetime.now().timestamp()
+    print(timestamp)            # 1744651845.123456
+    
+Extraire des informations d'une date
+    from datetime import datetime
+
+    maintenant = datetime.now()
+
+# Année, mois, jour
+    print(f"Année : {maintenant.year}")      # 2026
+    print(f"Mois : {maintenant.month}")      # 4
+    print(f"Jour : {maintenant.day}")        # 14
+
+# Heure, minute, seconde, microseconde
+    print(f"Heure : {maintenant.hour}")      # 15
+    print(f"Minute : {maintenant.minute}")   # 30
+    print(f"Seconde : {maintenant.second}")  # 45
+
+# Jour de la semaine (0=lundi, 6=dimanche)
+    print(f"Jour semaine : {maintenant.weekday()}")     # 1 (mardi)
+    print(f"Jour semaine ISO : {maintenant.isoweekday()}")  # 2 (mardi)
+
+# Numéro du jour dans l'année (1-366)
+    print(f"Jour de l'année : {maintenant.timetuple().tm_yday}")
+
+# Vérifier si année bissextile
+    from calendar import isleap
+    print(f"Année bissextile : {isleap(maintenant.year)}")
+
+La méthode strftime() - transformer date en texte
+# Exemples complets
+    from datetime import datetime
+    maintenant = datetime.now()
+
+    print(maintenant.strftime("%A %d %B %Y"))           # Tuesday 14 April 2026
+    print(maintenant.strftime("%a %d/%m/%y"))           # Tue 14/04/26
+    print(maintenant.strftime("%H:%M:%S"))              # 15:30:45
+    print(maintenant.strftime("%I:%M %p"))              # 03:30 PM
+    print(maintenant.strftime("Nous sommes le %d/%m/%Y à %Hh%M"))  # Nous sommes le 14/04/2026 à 15h30
+
+La méthode strptime() - transformer texte en date
+    from datetime import datetime
+
+# Convertir une chaîne en date
+    date_texte = "14/04/2026"
+    date_obj = datetime.strptime(date_texte, "%d/%m/%Y")
+    print(date_obj)           # 2026-04-14 00:00:00
+    print(type(date_obj))     # <class 'datetime.datetime'>
+
+# Autres exemples
+    date1 = datetime.strptime("2026-04-14", "%Y-%m-%d")
+    date2 = datetime.strptime("14 April 2026", "%d %B %Y")
+    date3 = datetime.strptime("Tue 14/04/26", "%a %d/%m/%y")
+
+Les différences entre dates
+    from datetime import datetime, timedelta
+
+# Créer deux dates
+    date1 = datetime(2026, 4, 14)
+    date2 = datetime(2026, 4, 20)
+
+# Différence
+    difference = date2 - date1
+    print(difference)               # 6 days, 0:00:00
+    print(difference.days)          # 6
+    print(difference.seconds)       # 0
+    print(type(difference))         # <class 'datetime.timedelta'>
+
+Ajouter ou enlever du temps
+    from datetime import datetime, timedelta
+
+    maintenant = datetime.now()
+
+# Ajouter des jours
+    demain = maintenant + timedelta(days=1)
+    print(f"Demain : {demain}")
+
+# Dans une semaine
+    dans_1_semaine = maintenant + timedelta(weeks=1)
+    print(f"Dans 1 semaine : {dans_1_semaine}")
+
+# Il y a 10 jours
+    il_y_a_10_jours = maintenant - timedelta(days=10)
+
+# Ajouter des heures
+    dans_3_heures = maintenant + timedelta(hours=3)
+
+# Ajouter plusieurs choses à la fois
+    plus_tard = maintenant + timedelta(days=5, hours=3, minutes=30)
+
+# Combinaison
+    date_future = datetime(2027, 1, 1)
+    temps_restant = date_future - maintenant
+    print(f"Jours avant 2027 : {temps_restant.days}")
+
+Comparer des dates
+
+    from datetime import datetime
+
+    date1 = datetime(2026, 4, 14)
+    date2 = datetime(2026, 4, 20)
+    date3 = datetime(2026, 4, 14)
+
+# Comparaisons simples
+    print(date1 < date2)     # True
+    print(date1 > date2)     # False
+    print(date1 == date3)    # True
+    print(date1 != date2)    # True
+
+# Utilisation dans des conditions
+    if date1 < date2:
+        print("date1 est avant date2")
+
+# Trouver la date la plus récente
+    dates = [date1, date2, date3]
+    plus_recente = max(dates)
+    plus_ancienne = min(dates)
+    print(f"La plus récente : {plus_recente}")
+
+faire recherche sur le module calendar
+
+affichez un mois en fr 
+Solution 3 : Créer votre propre formateur (sans locale)
+
+Si vous ne voulez pas utiliser locale, vous pouvez personnaliser :
+python
+
+import calendar
+
+def mois_francais(annee, mois):
+    # Créer le calendrier
+    cal = calendar.monthcalendar(annee, mois)
+    
+    # Noms des jours en français
+    jours = ["Lu", "Ma", "Me", "Je", "Ve", "Sa", "Di"]
+    
+    # Nom du mois en français
+    noms_mois = ["", "Janvier", "Février", "Mars", "Avril", "Mai", "Juin",
+                 "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"]
+    
+    # Afficher l'en-tête
+    print(f"{noms_mois[mois]} {annee}".center(20))
+    print(" ".join(jours))
+    print("-" * 20)
+    
+    # Afficher les semaines
+    for semaine in cal:
+        ligne = ""
+        for jour in semaine:
+            if jour == 0:
+                ligne += "   "  # 3 espaces pour les jours vides
+            else:
+                ligne += f"{jour:2d} "
+        print(ligne)
+
+# Utilisation
+mois_francais(2026, 4)
+
+Résultat :
+text
+
+     Avril 2026     
+Lu Ma Me Je Ve Sa Di
+--------------------
+       1  2  3  4  5
+ 6  7  8  9 10 11 12
+13 14 15 16 17 18 19
+20 21 22 23 24 25 26
+27 28 29 30       
