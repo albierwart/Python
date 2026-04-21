@@ -1,0 +1,17 @@
+# Exercice 11 : Fusion de deux listes triées
+
+# Fusionne deux listes triées en une seule liste triée (sans utiliser sort()).
+
+# Exercice 8 : Somme de deux nombres dans une liste
+
+# Étant donné une liste de nombres et une cible, trouve deux nombres dont la somme égale la cible.
+
+
+# Exercice 12 : Majorité (Algorithme de Boyer-Moore)
+
+# Trouve l'élément qui apparaît plus de la moitié du temps dans une liste.
+
+# Exercice 13 : Intersection de deux tableaux
+
+# Trouve les éléments communs à deux tableaux (sans doublons) 
+#  a refaire avec un set

@@ -1,0 +1,58 @@
+COURS COMPLET SUR LES EXPRESSIONS GÉNÉRATRICES
+PARTIE 1 : TEXTE THÉORIQUE
+1. QU'EST-CE QU'UNE EXPRESSION GÉNÉRATRICE ?
+
+Une expression génératrice est une syntaxe qui permet de créer un itérateur paresseux (lazy) de manière très concise. Elle ressemble à une compréhension de liste, mais avec des parenthèses au lieu de crochets.
+
+Le terme "paresseux" signifie que les valeurs sont générées une par une, au moment où on en a besoin, et non pas toutes en mémoire d'un coup.
+2. SYNTAXE
+python
+
+(expression for element in iterable if condition)
+
+    Parenthèses ( ) : délimitent l'expression génératrice
+
+    expression : ce qu'on fait avec chaque élément
+
+    for element in iterable : la boucle qui parcourt
+
+    if condition : (optionnel) filtre les éléments
+
+3. DIFFÉRENCE AVEC LA COMPRÉHENSION DE LISTE
+Caractéristique	Compréhension de liste	Expression génératrice
+Syntaxe	[ ... ]	( ... )
+Résultat	Liste (tous les éléments en mémoire)	Générateur (produit un par un)
+Mémoire	O(n) - prend toute la place	O(1) - prend peu de place
+Utilisation	Quand on a besoin de tous les éléments plusieurs fois	Quand on parcourt une seule fois
+4. COMMENT ÇA FONCTIONNE ?
+
+Une expression génératrice ne calcule rien tant qu'on ne la parcourt pas. Elle crée un objet générateur qui peut être parcouru une seule fois.
+
+À chaque demande (boucle for, next()), le générateur calcule l'élément suivant et l'oublie immédiatement après. Cela permet de traiter d'énormes volumes de données sans saturer la mémoire.
+5. QUAND UTILISER UNE EXPRESSION GÉNÉRATRICE ?
+
+À utiliser quand :
+
+    On parcourt une seule fois les éléments
+
+    La séquence est très grande (millions d'éléments)
+
+    On veut économiser la mémoire
+
+    On veut un traitement "en flux" (streaming)
+
+À éviter quand :
+
+    On a besoin de parcourir plusieurs fois les éléments
+
+    On a besoin d'accéder à un élément par index
+
+    On a besoin de connaître la longueur totale
+
+6. LIMITES
+
+    Un générateur ne peut être parcouru qu'une seule fois (il s'épuise)
+
+    On ne peut pas accéder à un élément par index [i]
+
+    On ne peut pas utiliser len() sur un générateur

@@ -180,7 +180,9 @@ Copie superficielle : le dictionnaire est nouveau (adresse différente), mais le
 
 Assignation directe (original = copie) : là oui, même adresse
 
-Copie profonde : tout est nouveau (adresses différentes partout
+Copie profonde : tout est nouveau (adresses différentes partout)
+
+dict.fromkeys()	list(dict.fromkeys(liste))	conserve l ordre: Oui (Python 3.7+)
     
     
     

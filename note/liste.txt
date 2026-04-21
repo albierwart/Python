@@ -179,3 +179,6 @@ list	Ordonnée, modifiable, doublons autorisés
 # Créer une matrice avec des listes en compréhension
     matrice_identite = [[1 if i == j else 0 for j in range(3)] for i in range(3)]
     print(matrice_identite)  # [[1, 0, 0], [0, 1, 0], [0, 0, 1]]
+    
+    
+print(listeDiviseurCommun[-1])   # Le [-1] prend toujours le dernier élément
