@@ -161,72 +161,72 @@ cible = 9
 
 # Trouve l'élément qui apparaît plus de la moitié du temps dans une liste.
 
-def boyer_moore_pas_a_pas(texte, motif):
-    """Version pédagogique qui affiche chaque étape"""
-    N = len(texte)
-    M = len(motif)
+# def boyer_moore_pas_a_pas(texte, motif):
+#     """Version pédagogique qui affiche chaque étape"""
+#     N = len(texte)
+#     M = len(motif)
     
-    if M == 0 or M > N:
-        return []
+#     if M == 0 or M > N:
+#         return []
     
-    # Table du mauvais caractère
-    table = {}
-    for i in range(M):
-        table[motif[i]] = M - 1 - i
+#     # Table du mauvais caractère
+#     table = {}
+#     for i in range(M):
+#         table[motif[i]] = M - 1 - i
     
-    print(f"Table du mauvais caractère pour '{motif}':")
-    for lettre, decalage in table.items():
-        print(f"  '{lettre}' → décalage {decalage}")
-    print(f"  Autres lettres → décalage {M}")
-    print()
+#     print(f"Table du mauvais caractère pour '{motif}':")
+#     for lettre, decalage in table.items():
+#         print(f"  '{lettre}' → décalage {decalage}")
+#     print(f"  Autres lettres → décalage {M}")
+#     print()
     
-    positions = []
-    position = 0
+#     positions = []
+#     position = 0
     
-    while position <= N - M:
-        print(f"\n--- Alignement à la position {position} ---")
-        print(f"Texte : {texte}")
-        print(f"Motif : {' ' * position}{motif}")
+#     while position <= N - M:
+#         print(f"\n--- Alignement à la position {position} ---")
+#         print(f"Texte : {texte}")
+#         print(f"Motif : {' ' * position}{motif}")
         
-        j = M - 1
-        while j >= 0 and motif[j] == texte[position + j]:
-            j -= 1
+#         j = M - 1
+#         while j >= 0 and motif[j] == texte[position + j]:
+#             j -= 1
         
-        if j < 0:
-            print(f"✓ TROUVÉ à la position {position} !")
-            positions.append(position)
-            position += 1
-        else:
-            print(f"✗ Différence à l'indice {j}: motif[{j}]='{motif[j]}' vs texte[{position + j}]='{texte[position + j]}'")
-            lettre_texte = texte[position + j]
+#         if j < 0:
+#             print(f"✓ TROUVÉ à la position {position} !")
+#             positions.append(position)
+#             position += 1
+#         else:
+#             print(f"✗ Différence à l'indice {j}: motif[{j}]='{motif[j]}' vs texte[{position + j}]='{texte[position + j]}'")
+#             lettre_texte = texte[position + j]
             
-            if lettre_texte in table:
-                decalage = table[lettre_texte]
-                print(f"  '{lettre_texte}' trouvé dans le motif → décalage = {decalage}")
-            else:
-                decalage = M
-                print(f"  '{lettre_texte}' non trouvé dans le motif → décalage = {decalage}")
+#             if lettre_texte in table:
+#                 decalage = table[lettre_texte]
+#                 print(f"  '{lettre_texte}' trouvé dans le motif → décalage = {decalage}")
+#             else:
+#                 decalage = M
+#                 print(f"  '{lettre_texte}' non trouvé dans le motif → décalage = {decalage}")
             
-            avance = j - decalage + 1
-            if avance <= 0:
-                avance = 1
+#             avance = j - decalage + 1
+#             if avance <= 0:
+#                 avance = 1
             
-            print(f"  Avance de {avance} case(s)")
-            position += avance
+#             print(f"  Avance de {avance} case(s)")
+#             position += avance
     
-    return positions
+#     return positions
 
 
-# Tester la version pédagogique
-print("\n" + "=" * 60)
-print("VERSION PÉDAGOGIQUE AVEC AFFICHAGE")
-print("=" * 60)
+# # Tester la version pédagogique
+# print("\n" + "=" * 60)
+# print("VERSION PÉDAGOGIQUE AVEC AFFICHAGE")
+# print("=" * 60)
 
-texte_test = "abcxabd"
-motif_test = "abd"
-print(f"\nRecherche de '{motif_test}' dans '{texte_test}'\n")
-resultat = boyer_moore_pas_a_pas(texte_test, motif_test)
-print(f"\nRésultat final : motif trouvé aux positions {resultat}")
+# texte_test = "abcxabd"
+# motif_test = "abd"
+# print(f"\nRecherche de '{motif_test}' dans '{texte_test}'\n")
+# resultat = boyer_moore_pas_a_pas(texte_test, motif_test)
+# print(f"\nRésultat final : motif trouvé aux positions {resultat}")
 
 
 # Exercice 13 : Intersection de deux tableaux
@@ -242,3 +242,82 @@ print(f"\nRésultat final : motif trouvé aux positions {resultat}")
 #         listeFin.append(n)
 # print(listeFin)
         
+# Exercice 1 : Recherche linéaire
+
+# # Écris une fonction qui cherche un élément dans une liste et retourne son index (ou -1 si non trouvé)
+
+# liste = [1,2,3,4,5,6,7,8,9]
+
+# def indice(cible):
+#     for i in range(len(liste)):
+#         if cible == liste[i]:
+#              print(i)
+#     else:
+#           print(f"-1")
+# indice(9)
+
+# Exercice 2 : Recherche dichotomique (binaire)
+
+# Implémente la recherche dichotomique sur une liste triée. Complexité : O(log n)
+
+# liste = [1,2,3,4,5,6,7,8,9]
+
+# gauche = 0
+# droite = len(liste)-1
+# recherche = True
+# cible = 7
+
+# while gauche<=droite:
+#     millieu = (droite+gauche)//2
+#     if cible == liste[millieu]:
+#         print("trouve")
+#         break
+    
+#     if liste[millieu] < cible:
+#         gauche = millieu+1
+#     else:
+#         droite = millieu -1
+# import sys
+# # Exercice 3 : Trouver le minimum et le maximum
+
+# # Trouve le min et le max d'une liste en une seule passe (pas deux parcours séparés)
+
+
+# def min_max(liste):
+#     min = sys.maxsize
+#     max = -sys.maxsize
+#     for n in liste:
+#         if n < min:
+#             min = n
+#         elif n>max:
+#             max = n
+#     print(f"min:{min}  max:{max}")
+
+# min_max([3, 7, 1, 9, 2])
+
+# Exercice 5 : Somme des éléments
+
+# Calcule la somme des éléments d'une liste (récursif et itératif).
+
+# liste = [1,2,3,4,5]
+
+# def somme(liste):
+#     total = 0
+#     for n in liste:
+#         total+= n    
+#     return total
+# print(somme(liste))
+
+# Exercice 6 : Inversion de liste
+
+# Inverse une liste sans utiliser [::-1] ou reverse().
+
+def inverser(liste):
+    temp = 0
+    for i in range(len(liste)//2):
+        temp= liste[i]
+        liste[i] = liste[len(liste)-1-i]
+        liste[len(liste)-1-i] = temp
+liste = [1, 2, 3, 4, 5]
+inverser(liste)
+print(liste)
