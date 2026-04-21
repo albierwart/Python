@@ -312,12 +312,38 @@ cible = 9
 
 # Inverse une liste sans utiliser [::-1] ou reverse().
 
-def inverser(liste):
-    temp = 0
-    for i in range(len(liste)//2):
-        temp= liste[i]
-        liste[i] = liste[len(liste)-1-i]
-        liste[len(liste)-1-i] = temp
-liste = [1, 2, 3, 4, 5]
-inverser(liste)
-print(liste)
+# def inverser(liste):
+#     temp = 0
+#     for i in range(len(liste)//2):
+#         temp= liste[i]
+#         liste[i] = liste[len(liste)-1-i]
+#         liste[len(liste)-1-i] = temp
+# liste = [1, 2, 3, 4, 5]
+# inverser(liste)
+# print(liste)
+
+# Exercice 7 : Palindrome (version nombre)
+
+# Vérifie si un nombre est un palindrome sans le convertir en chaîne.
+
+# def est_palindrome(nombre):
+#     # Les nombres négatifs ne sont pas des palindromes (le signe - pose problème)
+#     if nombre < 0:
+#         return False
+    
+#     original = nombre
+#     inverse = 0
+    
+#     while nombre > 0:
+#         dernier_chiffre = nombre % 10
+#         inverse = inverse * 10 + dernier_chiffre
+#         nombre = nombre // 10
+    
+#     return original == inverse
+
+# # Tests
+# print(est_palindrome(12321))  # True
+# print(est_palindrome(12345))  # False
+# print(est_palindrome(1221))   # True
+# print(est_palindrome(7))      # True (un seul chiffre)
+# print(est_palindrome(-121))   # False (négatif)

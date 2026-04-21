@@ -219,7 +219,8 @@ import random
 
 # # ---------------------------------------------------------------------------------------
 # Exercice 12 : Dictionnaire inversé
-# Crée un dictionnaire où plusieurs clés peuvent avoir la même valeur. Inverse-le pour obtenir un dictionnaire où les valeurs deviennent des clés et les clés deviennent des listes de valeurs.
+# Crée un dictionnaire où plusieurs clés peuvent avoir la même valeur.
+#  Inverse-le pour obtenir un dictionnaire où les valeurs deviennent des clés et les clés deviennent des listes de valeurs.
 
 # Exemple : {"a": 1, "b": 2, "c": 1} → {1: ["a", "c"], 2: ["b"]}
 
