@@ -79,20 +79,76 @@ import sys
 # Crée deux listes de même longueur, puis crée un dictionnaire où les éléments de la première liste
 # sont les clés et ceux de la deuxième les valeurs.
 
-list1 = [1, 2, 3]
-list2 = ["pomme", "poire", "orange"]
-list3 = dict(zip(list1, list2))
-print(list3)
+# list1 = [1, 2, 3]
+# list2 = ["pomme", "poire", "orange"]
+# list3 = dict(zip(list1, list2))
+# print(list3)
 
+# # -------------------------------------------------------------------------------------------------
+# Exercice 1 : Calculer la moyenne
 
+# notes = [12, 15, 8, 19, 14]
+
+# total=0
+# nbrNote = len(notes)
+# for n in notes:
+#     total+=n
+# print(f"la moyenne est de {total/nbrNote}")
+# # # -------------------------------------------------------------------------------------------------
+# # Exercice 2 : Compter les nombres pairs
+# # Affiche "Il y a X nombres pairs"
+# nombres = [3, 6, 9, 12, 15, 18]
+# nbrPair = 0
+# for n in nombres:
+#     if n %2==0:
+#         nbrPair+=1
+
+# print(f"il y a {nbrPair} nombre pair dans la liste")
+
+# # -------------------------------------------------------------------------------------------------
+# Exercice 3 : Inverser la liste
+# Inverse l'ordre : doit devenir [5, 4, 3, 2, 1]
+# (sans utiliser reverse() ou [::-1])
+
+# liste = [1, 2, 3, 4, 5]
+# L = len(liste)
+
+# for i in range(L//2):
+#     temp = liste[i]
+#     liste[i] = liste[L-1-i]
+#     liste[L-1-i] = temp
+
+# print(liste)
+# # -------------------------------------------------------------------------------------------------
+# Exercice 4 : Vérifier si la liste est triée
+# Écris une fonction qui retourne True si la liste est triée croissante
+# liste1 = [1, 3, 5, 7, 9]   # True
+# liste2 = [2, 5, 3, 8, 4]   # False
+
+# def estTrie(liste):
+#     for i in range(len(liste)-1):
+#         if liste[i] > liste[i+1]:
+#             return False
+#     return True
+
+# print(estTrie(liste2))
+# -------------------------------------------------------------------------------------------------
+# Exercice 1 : Afficher toutes les paires d'éléments
+# Affichage attendu :
+# (1, 2)
+# # (1, 3)
+# # (2, 3)
+# liste = [1, 2, 3]
+
+# for i in range(len(liste)):
+#     for j in range(i+1,len(liste)):
+#         print((liste[i],liste[j]))
+# -------------------------------------------------------------------------------------------------
 
 
 # -------------------------------------------------------------------------------------------------
 
-# -------------------------------------------------------------------------------------------------
-
 
 # -------------------------------------------------------------------------------------------------
 
-# -------------------------------------------------------------------------------------------------
 # -------------------------------------------------------------------------------------------------

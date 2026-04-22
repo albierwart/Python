@@ -347,3 +347,78 @@ cible = 9
 # print(est_palindrome(1221))   # True
 # print(est_palindrome(7))      # True (un seul chiffre)
 # print(est_palindrome(-121))   # False (négatif)
+
+
+# Exercice 8 : Tri à bulles (Bubble Sort)
+
+# Implémente le tri à bulles. Ajoute une optimisation : arrête-toi si aucun échange n'a eu lieu.
+
+# liste = [5,2,8,1,9]
+# temp = 0
+# counter = 0
+# for j in range(len(liste) - 1):
+#     for i in range(len(liste)):
+#         if i == len(liste)-1:
+#             continue
+#         if liste[i] > liste[i+1]:
+#             temp = liste[i]
+#             liste[i] = liste[i+1]
+#             liste[i+1]=temp
+# print(liste)
+
+# Exercice 9 : Tri par sélection (Selection Sort)
+# Implémente le tri par sélection.
+# import sys
+
+# liste = [5,2,8,1,9]
+# longueur = len(liste)
+
+# indice = 0
+# for i in range(longueur-1):
+#     min =sys.maxsize
+#     indice = 0
+#     for j in range(i, longueur):
+#         if liste[j] < min:
+#             min = liste[j]
+#             indice = j
+#     temp = liste[i]
+#     liste[i] = min
+#     liste[indice]=temp
+#     print(liste)
+
+# print(liste)
+
+# Exercice 10 : Tri par insertion (Insertion Sort)
+
+# Implémente le tri par insertion.
+
+# liste = [5, 2, 8, 1, 9]
+# longueur = len(liste)
+
+# # On commence à l'indice 1 car le premier élément (indice 0) est déjà "trié"
+# for i in range(1, longueur):
+    
+#     # 1. On extrait l'élément à insérer
+#     temp = liste[i]
+    
+#     # 2. On regarde les éléments à gauche (partie triée)
+#     # On part de i-1 et on remonte vers la gauche
+#     j = i - 1
+    
+#     # 3. On décale tous les éléments plus grands que temp vers la droite
+#     while j >= 0 and liste[j] > temp:
+#         liste[j + 1] = liste[j]  # décalage vers la droite
+#         j = j - 1                 # on continue à gauche
+    
+#     # 4. On insère temp à sa place
+#     liste[j + 1] = temp
+    
+#     # Affichage après chaque insertion (pour suivre l'évolution)
+#     print(f"Après insertion de {temp} : {liste}")
+
+# print("\nRésultat final :", liste)
+
+# Exercice 11 : Tri fusion (Merge Sort)
+
+# Implémente le tri fusion (récursif). C'est un classique d'entretien !
+
