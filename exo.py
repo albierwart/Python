@@ -290,17 +290,107 @@ import sys
 #     print("c est un nombre premier")
 
 
+# # -------------------------------------------------------------------------------
+# # FACTORIELLE RÉCURSIVE
+# pour n donner n*n-1 jusqua 1
+
+# n=5
+# resultat = 0
+# def facto(n):
+#     if n < 1:
+#         return 1    
+#     return n*facto(n-1)
+# print(facto(n))
+
+# # -------------------------------------------------------------------------------
+# Exercice 15 : Suite de Fibonacci
+
+# n=9
+# liste = []
+# liste.append(0) 
+# liste.append(1)
+# counter = 2
+# while counter<n:
+#     liste.append(liste[counter-1]+ liste[counter-2])
+#     counter+=1
+# print(liste)
+# n=9
+# valMoinsDeux=0
+# valMoinsUn=1
+# print(f"{valMoinsDeux}, {valMoinsUn}, ", end="")
+# counter=2
+# while counter<n:
+#     fibo = valMoinsDeux+valMoinsUn
+#     print(f"{fibo}, ", end="")
+#     valMoinsDeux = valMoinsUn
+#     valMoinsUn = fibo
+#     counter+=1
+
 # -------------------------------------------------------------------------------
+# Exercice 15 : Suite de Fibonacci recursive
+# n=9
+# counter = 0
+# def fibo(n1,n2, counter,n):
+#     counter+=1
+#     if n == counter:
+#         return n1
+#     return fibo(n2, n1+n2, counter,n)
+# print(fibo(0,1,counter,n))
+
+
+# -------------------------------------------------------------------------------
+# # Exercice 17 : Puissance rapide
+
+# # Calcule x^n en O(log n) avec la méthode :
+
+# #     Si n est pair : x^n = (x^(n/2))²
+
+# #     Si n est impair : x^n = x * x^(n-1)
+
+# n = 2
+# puissance = 10
+
+# def puissance(n, puissance):
+
+
+# # # -------------------------------------------------------------------------------
+# Exercice 19 : Permutations d'une chaîne
+
+# Génère toutes les permutations possibles d'une chaîne.
+
+# #    permutations("abc") → ["abc", "acb", "bac", "bca", "cab", "cba"] 
+# def permutations_detail(chaine, etape=0):
+#     """
+#     Version avec affichage pour comprendre le processus
+#     """
+#     print(f"{'  ' * etape}Permutations de '{chaine}'")
+    
+#     if len(chaine) <= 1:
+#         print(f"{'  ' * etape}  Retourne : [{chaine}]")
+#         return [chaine]
+    
+#     resultat = []
+    
+#     for i in range(len(chaine)):
+#         caractere = chaine[i]
+#         reste = chaine[:i] + chaine[i+1:]
+#         print(f"{'  ' * etape}  Caractère '{caractere}', reste '{reste}'")
+        
+#         for perm in permutations_detail(reste, etape + 1):
+#             resultat.append(caractere + perm)
+    
+#     print(f"{'  ' * etape}  Retourne : {resultat}")
+#     return resultat
+
+
+# print("=== DÉTAIL DU PROCESSUS ===")
+# print("\nPermutations de 'abc' :")
+# resultat = permutations_detail("abc")
+# print(f"\nRésultat final : {resultat}")
 
 # -------------------------------------------------------------------------------
 
-# -------------------------------------------------------------------------------
 
-# -------------------------------------------------------------------------------
-
-# -------------------------------------------------------------------------------
-
-# -------------------------------------------------------------------------------
 
 # -------------------------------------------------------------------------------
 
