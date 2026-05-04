@@ -52,16 +52,16 @@ liste = []
 # Exercice 14 : Devine le nombre
 
 # L'ordinateur choisit un nombre entre 1 et 20. L'utilisateur doit le deviner. Après chaque essai, affiche "plus grand" ou "plus petit".
-import random
+# import random
 
-nbr_secret = random.randint(1,20)
-reponse = 0
-print(nbr_secret)
-while(reponse != nbr_secret):
-    reponse = int(input("entrez un nbr "))
-    if reponse < nbr_secret:
-        print("plus grand")
-    else:
-        print("plus petit")
-else:
-    print("nbr secret trouvé")
+# nbr_secret = random.randint(1,20)
+# reponse = 0
+# print(nbr_secret)
+# while(reponse != nbr_secret):
+#     reponse = int(input("entrez un nbr "))
+#     if reponse < nbr_secret:
+#         print("plus grand")
+#     else:
+#         print("plus petit")
+# else:
+#     print("nbr secret trouvé")
