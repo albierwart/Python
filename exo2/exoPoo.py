@@ -231,10 +231,94 @@
 # v = Voiture("Renault", "Clio", 2020, 5)
 # v.afficher_infos()  # "Renault, Clio (2020) - 5 portes"
 # -------------------------------------------------------------------------------------------------------------
+# Exercice 12 : Héritage - Compte bancaire (avec super())
+
+# Crée une classe Compte avec :
+
+#     Attributs : titulaire, solde
+
+#     Méthode deposer(montant) et retirer(montant)
+
+# Puis une classe CompteEpargne qui hérite de Compte avec :
+
+#     Attribut supplémentaire : taux_interet
+
+#     Méthode appliquer_interets() qui augmente le solde en fonction du taux
+
+# Utilise super().__init__() dans le constructeur.
+
+# class Compte:
+#     def __init__(self, titulaire, solde):
+#         self.titulaire = titulaire
+#         self.solde = solde
+#     def deposer(self, montant):
+#         self.solde += montant
+#     def retirer(self, montant):
+#         self.solde -= montant
+
+# class CompteEpargne(Compte):
+#     def __init__(self, titulaire, solde, taux_interet):
+#         super().__init__(titulaire, solde)
+#         self.taux_interet = taux_interet
+#     def appliquer_interet(self):
+#         self.solde += self.solde*self.taux_interet
+ 
+#  # Exemple d'utilisation
+# ce = CompteEpargne("Alice", 1000, 0.02)
+# ce.appliquer_interet()
+# print(ce.solde)  # 1020.0   
 
 
-# -------------------------------------------------------------------------------------------------------------
-# -------------------------------------------------------------------------------------------------------------
+# # -------------------------------------------------------------------------------------------------------------
+# Exercice 14 : Méthodes de classe (constructeur alternatif)
+
+# Crée une classe Personne avec :
+
+#     Attributs : nom, age
+
+#     Constructeur classique __init__(nom, age)
+
+#     Méthode de classe depuis_annee_naissance(nom, annee_naissance) qui calcule l'âge et crée une instance
+
+# class Personne:
+#     def __innit__(self, nom, age):
+#         self.nom = nom
+#         self.age = age
+#     @classmethod
+#     def depuis_annee_naisssance(cls, nom, annee_naissance):
+#         age = 2026-annee_naissance
+#         return(cls(nom,age))
+# # -------------------------------------------------------------------------------------------------------------
+# Exercice 15 : Classes abstraites
+
+# Crée une classe abstraite Forme avec :
+
+#     Méthode abstraite aire()
+
+#     Méthode abstraite perimetre()
+
+# Puis deux classes concrètes Rectangle et Cercle qui implémentent ces méthodes.
+from abc import ABC, abstractmethod
+class Forme(ABC):
+    @abstractmethod
+    def aire(self):
+        pass
+    @abstractmethod
+    def perimetre(self):
+        pass
+class Rectangle(Forme):
+    def __init__(self, longueur, largeur):
+        self.longueur = longueur
+        self.largeur = largeur
+    def aire(self):
+        return self.longueur*self.largeur
+    def perimetre(self):
+        return 2 * (self.longueur+self.largeur)
+# Exemple d'utilisation
+rect = Rectangle(5, 3)
+
+print(rect.aire())      # 15
+print(rect.perimetre()) # ~25.13  
 # -------------------------------------------------------------------------------------------------------------
 # -------------------------------------------------------------------------------------------------------------
 # -------------------------------------------------------------------------------------------------------------
