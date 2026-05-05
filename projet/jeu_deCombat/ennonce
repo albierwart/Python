@@ -1,0 +1,340 @@
+PROJET : JEU DE COMBAT AU TOUR PAR TOUR
+Objectif
+
+Créer un jeu de combat où le joueur affronte des adversaires au tour par tour. Le jeu doit inclure un système de classes de personnages, de combat, de sauvegarde et d'expérience.
+PARTIE 1 : SPÉCIFICATIONS FONCTIONNELLES
+1.1 Menu principal
+
+Le jeu propose un menu avec :
+
+    Partir en combat
+
+    Voir mes statistiques
+
+    Me soigner
+
+    Sauvegarder
+
+    Quitter
+
+1.2 Création du personnage
+
+Au premier lancement, le joueur doit :
+
+    Choisir un nom
+
+    Choisir une classe parmi :
+
+        Guerrier : PV élevés, bonne attaque
+
+        Mage : Dégâts magiques, faible PV, utilise de la mana
+
+        Voleur : Attaque rapide, chance d'esquiver
+
+        Paladin : Hybride, peut se soigner
+
+1.3 Système de combat
+
+    Combat au tour par tour
+
+    À chaque tour, le joueur peut :
+
+        Attaquer (dégâts de base)
+
+        Utiliser capacité spéciale (varie selon la classe)
+
+        Se soigner (récupère des PV)
+
+        Fuir (chance de succès)
+
+    L'adversaire joue après le joueur (IA simple)
+
+    Le combat s'arrête quand un combattant n'a plus de PV ou si le joueur fuit
+
+1.4 Système d'expérience et niveaux
+
+    Gagner un combat rapporte de l'XP
+
+    L'XP nécessaire pour monter de niveau augmente à chaque niveau
+
+    Monter de niveau augmente : PV max, attaque, défense
+
+    Le personnage est totalement soigné après un niveau
+
+1.5 Sauvegarde
+
+    Le personnage doit pouvoir être sauvegardé dans un fichier JSON
+
+    Chargement automatique au lancement du jeu
+
+    Sauvegarde manuelle via le menu
+
+1.6 Adversaires
+
+    L'adversaire est généré aléatoirement
+
+    Plusieurs types d'adversaires (Gobelin, Sorcier, Orc, Dragon...)
+
+    Niveau de l'adversaire basé sur le niveau du joueur
+
+PARTIE 2 : CONTRAINTES TECHNIQUES
+2.1 Architecture obligatoire
+
+Tu dois structurer ton code avec AU MOINS ces fichiers :
+text
+
+projet_combat/
+│
+├── main.py           # Point d'entrée, menu principal
+├── personnages.py    # Classes des personnages
+├── combat.py         # Logique de combat
+├── utils.py          # Fonctions utilitaires (dés, couleurs, menus...)
+└── sauvegarde.json   # Fichier de sauvegarde (créé automatiquement)
+
+2.2 Concepts à utiliser
+Concept	Où l'utiliser
+Classes et héritage	Les différents types de personnages
+Dataclass	Au moins une classe de données
+Énumération (Enum)	Types de personnages, actions, statuts
+Propriété (@property)	est_vivant
+Méthode spéciale	__post_init__ pour validation
+Gestion d'erreurs	Saisies utilisateur, fichiers
+Fichiers JSON	Sauvegarde/chargement
+Docstrings	Documenter chaque fonction/classe
+2.3 Contraintes de style
+
+    Docstring pour chaque fonction et classe
+
+    Nommage clair en anglais ou français (choisis un et reste cohérent)
+
+    Pas de code "copié-collé" : utilise des fonctions pour éviter la répétition
+
+PARTIE 3 : FONCTIONNALITÉS DÉTAILLÉES
+3.1 Classes de personnages
+Classe de base Personnage (abstraite ou non)
+
+Attributs :
+
+    nom (str)
+
+    pv_max (int)
+
+    pv_actuels (int) - initialisé à pv_max
+
+    attaque_base (int)
+
+    defense_base (int)
+
+    niveau (int) - débute à 1
+
+    experience (int) - débute à 0
+
+    experience_suivant (int) - débute à 100
+
+Méthodes :
+
+    est_vivant() → bool (propriété)
+
+    attaquer(cible) → int (dégâts infligés)
+
+    recevoir_degats(degats) → void
+
+    gagner_experience(xp) → void (gère la montée de niveau)
+
+    monter_niveau() → void
+
+    se_soigner(montant=0) → int (montant soigné, valeur par défaut calculée)
+
+    capacite_speciale(cible) → tuple (message, dégâts) - à redéfinir
+
+    __str__() → str
+
+Classe Guerrier (hérite de Personnage)
+
+Spécificités :
+
+    PV élevés (120)
+
+    Capacité spéciale "Coup de rage" : dégâts augmentés quand ses PV sont bas
+
+    Attribut supplémentaire : rage (optionnel)
+
+Classe Mage (hérite de Personnage)
+
+Spécificités :
+
+    PV faibles (80)
+
+    Attaque consomme de la mana (10 mana par attaque normale)
+
+    Capacité spéciale "Boule de feu" : dégâts élevés, consomme 30 mana
+
+    Attribut supplémentaire : mana (débute à 100)
+
+    Se soigner régénère aussi un peu de mana
+
+Classe Voleur (hérite de Personnage)
+
+Spécificités :
+
+    Chance d'esquiver les attaques (20%)
+
+    Capacité spéciale "Attaque sournoise" : double dégâts
+
+    Attribut supplémentaire : esquive (bonus d'esquive temporaire)
+
+Classe Paladin (hérite de Personnage)
+
+Spécificités :
+
+    Hybride (PV moyens, défense élevée)
+
+    Capacité spéciale "Frappe sacrée" : dégâts + soin
+
+    Attribut supplémentaire : foi (optionnel)
+
+3.2 Fonctions utilitaires (utils.py)
+
+    lancer_de(sides=20) → int (retourne un nombre aléatoire entre 1 et sides)
+
+    afficher_barre_vie(pv_actuels, pv_max, longueur=20) → str (retourne une barre de vie stylisée)
+
+    choix_menu(options) → int (affiche un menu et retourne le choix validé de l'utilisateur)
+
+    afficher_lentement(texte, delai=0.03) → void (affiche le texte caractère par caractère)
+
+Optionnel : codes de couleur ANSI pour améliorer l'affichage
+3.3 Combat (combat.py)
+Classe Combat
+
+Attributs :
+
+    joueur (Personnage)
+
+    adversaire (Personnage)
+
+    tour (int)
+
+    statut (Enum)
+
+    historique (list) - pour garder la trace des actions (optionnel)
+
+Méthodes :
+
+    afficher_etats() → void (affiche les barres de vie)
+
+    tour_joueur() → void (gère le tour du joueur)
+
+    tour_adversaire() → void (IA simple)
+
+    verifier_fin_combat() → Enum (EN_COURS, VICTOIRE_JOUEUR, VICTOIRE_ADVERSAIRE, ABANDON)
+
+    executer() → Enum (exécute le combat complet)
+
+Règles IA adversaire :
+
+    Si PV < 30% → chance de se soigner
+
+    Sinon, chance d'utiliser capacité spéciale (25%)
+
+    Sinon, attaque normale
+
+3.4 Sauvegarde
+
+    Sauvegarder dans sauvegarde.json : nom, classe, niveau, XP, PV max, attaque, défense
+
+    Au chargement, recréer le personnage avec ces valeurs
+
+    Sauvegarde automatique après chaque combat ou via le menu
+
+PARTIE 4 : DÉROULÉ DE JEU ATTENDU
+text
+
+=== JEU DE COMBAT ===
+
+Aucun personnage trouvé. Créons-en un !
+Ton nom : Arthur
+
+Choisis ta classe :
+1. ⚔️ Guerrier - Haut PV, bonne attaque
+2. 🔮 Mage - Dégâts magiques, faible PV
+3. 🗡️ Voleur - Attaque rapide, esquive
+4. 🛡️ Paladin - Hybride, peut soigner
+
+Ta classe (1-4) : 1
+
+✨ Arthur le Guerrier est né ! ✨
+
+--- MENU PRINCIPAL ---
+1. Partir en combat
+2. Voir mes stats
+3. Me soigner
+4. Sauvegarder
+5. Quitter
+
+Votre choix : 1
+
+⚔️ COMBAT : Arthur vs Gobelin ⚔️
+
+Arthur : [████████░░] 100/120 PV
+Gobelin : [██████████] 80/80 PV
+
+--- Tour 1 ---
+Actions :
+1. Attaquer
+2. Capacité spéciale
+3. Se soigner
+4. Fuir
+
+Votre choix : 1
+Arthur inflige 28 dégâts !
+
+... (suite du combat)
+
+🎉 VICTOIRE ! Arthur a gagné ! 🎉
+Arthur gagne 50 points d'expérience !
+
+PARTIE 5 : CRITÈRES DE RÉUSSITE
+Minimum requis
+
+    4 classes de personnages différentes
+
+    Système de combat fonctionnel
+
+    Sauvegarde/chargement JSON
+
+    Système de niveaux et d'XP
+
+    IA adverse basique
+
+    Docstrings sur toutes les fonctions/classes
+
+    Gestion des erreurs (saisies, fichiers)
+
+Bonus
+
+    Codes couleur dans le terminal
+
+    Affichage "lent" comme un jeu vidéo
+
+    Historique des actions du combat
+
+    Plus d'adversaires avec des comportements différents
+
+    Système de critique (chance de faire double dégâts)
+
+    Effets de statut (poison, brûlure...)
+
+PARTIE 6 : CONSEILS DE DÉVELOPPEMENT (SANS CODE)
+
+    Commence par la classe Personnage la plus simple possible
+
+    Teste avec un seul type de personnage avant d'ajouter les autres
+
+    Ajoute les fichiers un par un dans l'ordre : enums.py → personnages.py → combat.py → utils.py → main.py
+
+    Fais des sauvegardes régulières de ton code
+
+    Utilise des print() pour debugger au début
+
+    Ajoute la gestion d'erreurs à la fin (d'abord fais-le fonctionner, ensuite rends-le robuste)
