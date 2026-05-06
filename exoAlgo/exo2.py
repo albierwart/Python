@@ -177,15 +177,32 @@
 
 # Cas de base : n = 1 → déplacer le disque de départ vers arrivée
 
-A = [2,1]
-B= []
-C = []
+# A = [2,1]
+# B= []
+# C = []
+# cpt = len(A)-1
+# while cpt>=0:
+#     aBouger = A.pop()
+#     if not B:       
+#         B.append(aBouger)
+#         cpt-=1
+#     elif not C:
+#         C.append(aBouger)
+# # 
+# if not B:
+#     # B.append(aBouger)
+# print(f"liste A: {A}")
+# print(f"liste B: {B}")
+# print(f"liste C: {C}")
 
-aBouger = A.pop()
-if not B:
-    B.append(aBouger)
-print(f"liste A: {A}")
-print(f"liste B: {B}")
-print(f"liste C: {C}")
 
+def hanoi(n, depart, arrivee, auxiliaire):
+    if n == 1:
+        print(f"Déplacer disque 1 de {depart} vers {arrivee}")
+    else:
+        hanoi(n-1, depart, auxiliaire, arrivee)
+        print(f"Déplacer disque {n} de {depart} vers {arrivee}")
+        hanoi(n-1, auxiliaire, arrivee, depart)
 
+# Test
+hanoi(3, "A", "C", "B")
