@@ -422,3 +422,128 @@ cible = 9
 
 # Implémente le tri fusion (récursif). C'est un classique d'entretien !
 
+
+
+# Exercice 13 : Intersection de deux tableaux (le plus simple)
+
+# Objectif : Trouver les éléments communs à deux listes, sans doublons.
+# # Exemple
+# liste1 = [1, 2, 3, 4, 5]
+# liste2 = [4, 5, 6, 7, 8]
+
+# # Résultat attendu
+# [4, 5]
+
+# liste1 = [1, 2, 3, 4, 5]
+# liste2 = [4, 5, 6, 7, 8]
+
+# liste3 = list(set(liste1) & set(liste2))
+# print(liste3)
+# liste4 = []
+# for n in liste1:
+#     if n in liste2 and n not in liste4:
+#         liste4.append(n)
+# print(liste4)
+
+# Exercice 11 : Fusion de deux listes triées
+
+# Objectif : Fusionner deux listes déjà triées en une seule liste triée.
+# python
+
+# # Exemple
+# liste1 = [1, 3, 5, 7]
+# liste2 = [2, 4, 6, 8]
+
+# # Résultat attendu
+# # [1, 2, 3, 4, 5, 6, 7, 8]
+# liste1 = [1, 3, 5, 7]
+# liste2 = [2, 4, 6, 8]
+# liste3 = []
+
+# i, j = 0, 0
+# while i < len(liste1) and j < len(liste2):
+#     if liste1[i] < liste2[j]:
+#         liste3.append(liste1[i])
+#         i+=1
+#     else:
+#         liste3.append(liste2[j])
+#         j+=1
+# while i < len(liste1):
+#     liste3.append(liste1[i])
+#     i+=1
+# while j < len(liste2):
+#     liste3.append(liste2[j])
+#     j+=1
+# print(liste3)
+
+
+
+# Exercice 12 : Majorité (Boyer-Moore)
+
+# Tu avais fait une version naïve (double boucle). Le but est de refaire avec l'algorithme de vote (un seul passage).
+# python
+
+# # Exemple
+# liste = [3, 3, 4, 2, 3, 3, 3]
+
+# # # Résultat attendu
+# # 3
+# liste = [2,3, 3, 4, 2, 3, 3, 3]
+
+# compteur = 0
+# candidat = 0
+
+# for n in liste:
+#     if compteur == 0:
+#         candidat= n
+#         compteur = 1
+#     elif candidat == n:
+#          compteur+=1
+#     else:
+#         compteur-=1
+
+# print(candidat)
+
+# occurence = 0
+# for n in liste:
+#     if n == candidat:
+#         occurence+=1
+# if occurence > len(liste)/2:
+#     print(f"reponse = {candidat}")
+
+# Exercice 15 : Fibonacci récursif
+
+# def fibo(n):
+#     if n == 0:
+#         return 0
+#     if n == 1 :
+#         return 1
+#     return fibo(n-1) + fibo(n-2)
+# print(fibo(9))
+
+# Exercice 16 : Tours de Hanoï (récursif)
+
+# def hanoi(n, depart, arrivee,intermediaire):
+#     if n ==1:
+#         print(f"deplacer disque 1 de {depart} vers {arrivee}")
+#     else:
+#         hanoi(n-1, depart, intermediaire, arrivee)
+#         print(f"dplacer disque {n} de {depart} vers {arrivee}")
+#         hanoi(n-1,intermediaire, arrivee,depart)
+# hanoi(3, "A", "B", "C")
+
+def permutations(chaine):
+    # Cas de base
+    if len(chaine) <= 1:
+        return [chaine]
+    
+    resultat = []
+    for i in range(len(chaine)):
+        caractere = chaine[i]
+        reste = chaine[:i] + chaine[i+1:]
+        
+        for perm in permutations(reste):
+            resultat.append(caractere + perm)
+    
+    return resultat
+print(permutations("abc"))
