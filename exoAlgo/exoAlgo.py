@@ -758,25 +758,25 @@ cible = 9
 # pgcd(48, 18) → 6
 # pgcd(56, 42) → 14
 
-def pgcd(nbr , nbr2):
-    listeDivNbr = []
-    for n in range(1,nbr+1):
-        if nbr%n == 0:
-            listeDivNbr.append(n)
-    listeDivNbr2 = []
-    for chiffre in range(1,nbr2+1):
-        if nbr2%chiffre == 0:
-            listeDivNbr2.append(chiffre)
-    listDivCommunt = []
-    for n in listeDivNbr:
-        if n in listeDivNbr2:
-            listDivCommunt.append(n)
-    print(f"listeDivNbr : {listeDivNbr}")
-    print(f"listeDivNbr2 : {listeDivNbr2}")
-    print(f"listDivCommunt : {listDivCommunt}")
+# def pgcd(nbr , nbr2):
+#     listeDivNbr = []
+#     for n in range(1,nbr+1):
+#         if nbr%n == 0:
+#             listeDivNbr.append(n)
+#     listeDivNbr2 = []
+#     for chiffre in range(1,nbr2+1):
+#         if nbr2%chiffre == 0:
+#             listeDivNbr2.append(chiffre)
+#     listDivCommunt = []
+#     for n in listeDivNbr:
+#         if n in listeDivNbr2:
+#             listDivCommunt.append(n)
+#     print(f"listeDivNbr : {listeDivNbr}")
+#     print(f"listeDivNbr2 : {listeDivNbr2}")
+#     print(f"listDivCommunt : {listDivCommunt}")
 
-    return print(listDivCommunt.pop())
-pgcd(48,18)
+#     return print(listDivCommunt.pop())
+# pgcd(48,18)
 
 # ------------------------------------------------------------------------------------------------------------
 
