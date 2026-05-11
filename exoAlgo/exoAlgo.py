@@ -532,18 +532,258 @@ cible = 9
 #         hanoi(n-1,intermediaire, arrivee,depart)
 # hanoi(3, "A", "B", "C")
 
-def permutations(chaine):
-    # Cas de base
-    if len(chaine) <= 1:
-        return [chaine]
+# def permutations(chaine):
+#     # Cas de base
+#     if len(chaine) <= 1:
+#         return [chaine]
     
-    resultat = []
-    for i in range(len(chaine)):
-        caractere = chaine[i]
-        reste = chaine[:i] + chaine[i+1:]
+#     resultat = []
+#     for i in range(len(chaine)):
+#         caractere = chaine[i]
+#         reste = chaine[:i] + chaine[i+1:]
         
-        for perm in permutations(reste):
-            resultat.append(caractere + perm)
+#         for perm in permutations(reste):
+#             resultat.append(caractere + perm)
     
-    return resultat
-print(permutations("abc"))
+#     return resultat
+# print(permutations("abc"))
+
+# Exercice 1 (Niveau 1)
+
+# Compte les voyelles
+
+# Compte le nombre de voyelles (a, e, i, o, u, y) dans une phrase saisie par l'utilisateur.
+# python
+
+# # Exemple
+# Entrée : "Bonjour tout le monde"
+# # Sortie : 8
+# texte= "bonjour tout le monde"
+# tabVoyelle = ["a", "e", "i", "o", "u", "y"]
+
+# def nbrVoyelle (texte):
+#     cpt = 0
+#     for l in texte:
+#         if l in tabVoyelle:
+#             cpt+=1
+#     print(cpt)
+
+# nbrVoyelle(texte)
+# ------------------------------------------------------------------------------------------------------------
+# Exercice 2 (Niveau 2)
+
+# Deux sommes
+
+# Étant donné une liste de nombres et une cible, trouve toutes les paires (i, j) avec i < j dont la somme égale la cible.
+# python
+
+# # Exemple
+# liste = [1, 2, 3, 4, 5, 6]
+# cible = 7
+# # Résultat attendu : [(1,6), (2,5), (3,4)] ou les indices
+# liste = [1, 2, 3, 4, 5, 6]
+# cible = 7
+# listeResult=[]
+# def deuxSomme(liste, cible):
+#     for i in liste:
+#         for j in range(i+1, len(liste)+1):
+#             if i+j == cible:
+#                 listeResult.append((i,j))
+#     print(listeResult)
+# deuxSomme(liste, cible)
+# # ------------------------------------------------------------------------------------------------------------
+# Exercice 3 (Niveau 1)
+
+# Palindrome (version simple)
+
+# Vérifie si un mot (pas une phrase) est un palindrome.
+# python
+
+# # Exemples
+# "radar" → True
+# "bonjour" → False
+# texte = "bonjour"
+# def estPalindrome(texte):
+#     for i in range(0,len(texte)//2):
+#         if texte[i] != texte[len(texte)-1-i]:
+#             print("ce mot n est pas un palindrome")
+#             break
+#     else: print("True")
+
+# estPalindrome(texte)
+
+# ------------------------------------------------------------------------------------------------------------
+# Exercice 4 (Niveau 3 - récursivité)
+
+# Somme des chiffres (récursive)
+
+# Écris une fonction récursive qui calcule la somme des chiffres d'un nombre.
+# python
+
+# # Exemple
+# somme_chiffres(1234) → 10
+# # Car 1+2+3+4 = 10
+# nombre = 1234
+# reponse = 0
+# def sommeChiffre(nombre):
+#     if(nombre == 0):
+#         return 0
+#     chiffre = nombre % 10
+#     reste = nombre//10
+    
+#     return chiffre + sommeChiffre(reste)
+# print(sommeChiffre(nombre))
+
+# # ------------------------------------------------------------------------------------------------------------
+# Exercice 5 (Niveau 2)
+
+# Inverse un dictionnaire
+
+# Prend un dictionnaire et inverse-le : les valeurs deviennent des clés, les clés deviennent des listes de valeurs.
+# python
+
+# # Exemple
+# original = {"a": 1, "b": 2, "c": 1, "d": 3}
+# # Résultat : {1: ["a", "c"], 2: ["b"], 3: ["d"]}
+
+# original = {"a": 1, "b": 2, "c": 1, "d": 3}
+# reponse = {}
+
+# for cle, valeur in original.items():
+#     if valeur not in reponse:
+#         reponse[valeur] = []
+#     reponse[valeur].append(cle)
+# print(f" original = {original}")
+# print(f"reponse = {reponse}")
+
+
+# ------------------------------------------------------------------------------------------------------------
+# Exercice 6 (Niveau 1)
+
+# Nombre parfait
+
+# Un nombre est parfait s'il est égal à la somme de ses diviseurs propres (excluant lui-même). Vérifie si un nombre est parfait.
+# python
+
+# # Exemple
+# 6 → True (1+2+3 = 6)
+# 28 → True (1+2+4+7+14 = 28)
+# 12 → False
+# nbr = 12
+    
+# def estNbrParfait(nbr):
+#     listeDiviseur = []
+#     for n in range(1 , nbr):
+#         if nbr % n == 0:
+#             listeDiviseur.append(n)
+#     totChiffreListe = 0
+#     for n in listeDiviseur:
+#         totChiffreListe+= n
+#     if totChiffreListe == nbr:
+#         print("c est un nombre parfait")
+#     else:
+#         print("ce n est pas un nombre parfait")
+
+# estNbrParfait(nbr)
+
+# # ------------------------------------------------------------------------------------------------------------
+# Exercice 7 (Niveau 2)
+
+# Suppression des doublons
+
+# Prend une liste et retourne une nouvelle liste sans doublons, en conservant l'ordre d'apparition.
+# python
+
+# # Exemple
+# liste = [1, 3, 2, 3, 1, 4, 2, 5]
+# # Résultat : [1, 3, 2, 4, 5]
+# liste = [1, 3, 2, 3, 1, 4, 2, 5]
+# def sansDoublon(liste):
+#     listeReponse = []
+#     for n in liste:
+#         if n not in listeReponse:
+#             listeReponse.append(n)
+#     return print(listeReponse)
+# sansDoublon(liste)
+# # ------------------------------------------------------------------------------------------------------------
+# Exercice 8 (Niveau 3 - récursivité)
+
+# Puissance (récursive)
+
+# Écris une fonction récursive qui calcule a^b (a puissance b) sans utiliser l'opérateur **.
+# python
+
+# # Exemple
+# puissance(2, 5) → 32
+# puissance(3, 3) → 27
+
+# def fctPuissance(nbr, puissance):
+#     if puissance == 1:
+#         return nbr
+#     return nbr * fctPuissance(nbr, puissance-1)
+# print(fctPuissance(2,5))
+# ------------------------------------------------------------------------------------------------------------
+# Exercice 9 (Niveau 2)
+
+# Occurrences d'un caractère
+
+# Compte combien de fois chaque caractère apparaît dans une chaîne. Retourne un dictionnaire.
+# python
+
+# # Exemple
+# Entrée : "bonjour"
+# Sortie : {"b": 1, "o": 2, "n": 1, "j": 1, "u": 1, "r": 1}
+
+# texte = "bonjouro"
+# reponse = {}
+
+# for c in texte:
+#     if c not in reponse:
+#         reponse[c] = 1
+#     else:
+#         cpt = reponse[c]
+#         cpt+=1
+#         reponse[c] = cpt
+# print(reponse)
+
+# ------------------------------------------------------------------------------------------------------------
+# Exercice 10 (Niveau 1)
+
+# PGCD (version itérative)
+
+# Calcule le PGCD de deux nombres avec l'algorithme d'Euclide (version itérative, pas récursive).
+# python
+
+# # Exemple
+# pgcd(48, 18) → 6
+# pgcd(56, 42) → 14
+
+def pgcd(nbr , nbr2):
+    listeDivNbr = []
+    for n in range(1,nbr+1):
+        if nbr%n == 0:
+            listeDivNbr.append(n)
+    listeDivNbr2 = []
+    for chiffre in range(1,nbr2+1):
+        if nbr2%chiffre == 0:
+            listeDivNbr2.append(chiffre)
+    listDivCommunt = []
+    for n in listeDivNbr:
+        if n in listeDivNbr2:
+            listDivCommunt.append(n)
+    print(f"listeDivNbr : {listeDivNbr}")
+    print(f"listeDivNbr2 : {listeDivNbr2}")
+    print(f"listDivCommunt : {listDivCommunt}")
+
+    return print(listDivCommunt.pop())
+pgcd(48,18)
+
+# ------------------------------------------------------------------------------------------------------------
+
+# ------------------------------------------------------------------------------------------------------------
+
+# ------------------------------------------------------------------------------------------------------------
+
+# ------------------------------------------------------------------------------------------------------------
+
+# ------------------------------------------------------------------------------------------------------------
