@@ -390,22 +390,150 @@ import sys
 
 # -------------------------------------------------------------------------------
 
+# Exercice 1 : Multiplication par addition
+
+# Écris un programme qui multiplie deux nombres entiers positifs sans utiliser l'opérateur * (ni *=). 
+# Tu dois utiliser une boucle qui additionne le premier nombre à lui-même
+# autant de fois que la valeur du deuxième nombre.
+
+# def miltplication(nbr, multiplacateur):
+#     reponse = 0
+#     for n in range(multiplacateur):
+#         reponse += nbr
+#     return reponse
+# print(miltplication(2,5))
 
 
 # -------------------------------------------------------------------------------
+# Exercice 2 : Inversion de l'ordre des mots
+
+# Demande à l'utilisateur de saisir une phrase (plusieurs mots séparés par des espaces). '
+# 'Affiche la même phrase mais dans l'ordre inverse des mots.
+
+# Exemple : "bonjour tout le monde" → "monde le tout bonjour"
+
+# texte = "bonjour tout le monde"
+
+# for mot in texte:
+#     print(mot)
+# phrase = "Bonjour tout le monde"
+# texte = ""
+# mots = phrase.split()  # coupe aux espaces
+# print(mots)  # ['Bonjour', 'tout', 'le', 'monde']
+
+# # Parcourir tous les mots
+# i = len(mots)-1
+# while i >=0:
+#     texte = texte + mots[i] + " " 
+#     i-=1
+# print(phrase)
+# print(texte)
 
 # -------------------------------------------------------------------------------
+# Exercice 3 : Triangle d'étoiles
+
+# Demande un nombre entier N à l'utilisateur. Affiche un triangle rectangle isocèle d'étoiles (*) de hauteur N,
+# avec l'angle droit en bas à gauche.
+
+# def affTriange(nbr):
+#     for i in range(1,nbr+1):
+#         print("*" * i)
+
+# affTriange(5)
 
 # -------------------------------------------------------------------------------
+# Exercice 4 : Somme des entiers pairs compris entre deux bornes
+
+# Demande deux nombres entiers A et B à l'utilisateur (sans hypothèse sur l'ordre). 
+# Calcule et affiche la somme des entiers pairs compris entre ces deux bornes, bornes incluses.
+
+# Exemple : A = 3, B = 10 → les entiers pairs sont 4, 6, 8, 10 → somme = 28
+# -------------------------------------------------------------------------------
+# def sommePair(nbr1, nbr2):
+#     reponse = 0
+#     if nbr2<nbr1:
+#         temp = nbr2
+#         nbr2 = nbr1
+#         nbr1 = temp
+#     for n in range(nbr1, nbr2+1):
+#         if n%2==0:
+#             reponse += n
+#     return print(reponse)
+# sommePair(3,10)
+
 
 # -------------------------------------------------------------------------------
+# Exercice 5 : Devinette
+
+# Le programme choisit un nombre aléatoire entre 1 et 50. 
+# Le joueur doit deviner ce nombre. À chaque essai, le programme lui dit si le nombre est "plus grand", "plus petit", ou "bravo !"
+# s'il a trouvé. Le programme compte et affiche le nombre d'essais au moment de la victoir
+# import random
+# aTrouver = random.randint(1,50)
+# print(aTrouver)
+# reponse = int(input("donner un nombre entre 1 et 50 "))
+# essai = 0
+# while reponse != aTrouver:
+#     if aTrouver < reponse:
+#         print("les chiffre a trouver est plus petit")
+#         essai+=1
+#         reponse = int(input(f"donner un nombre entre 1 et {reponse} "))
+#     elif aTrouver > reponse:
+#         print("le chiffre a trouver est plus grand")
+#         essai+=1
+#         reponse = int(input(f"donner un nombre entre {reponse} et 50 "))
+# else:
+#     essai+=1
+#     print(f" bravo tu as trouve en {essai} tentative")
 
 
+
+# # -------------------------------------------------------------------------------
+# Exercice 1 : Compression basique
+
+# Écris une fonction qui prend une chaîne de caractères et retourne une version compressée selon la règle suivante : 
+# chaque groupe de lettres identiques consécutives est remplacé par la lettre suivie du nombre d'occurrences.
+#  Si une lettre apparaît une seule fois, on n'écrit pas le 1.
+
+# Exemple : "AAABBC" → "A3B2C"
+
+# Autre exemple : "ABBBCDDD" → "AB3CD3"
+
+# def transform(texte):
+#     reponse = ""
+#     for i,c in enumerate(texte):
+#         cpt = 1
+#         if texte[i+1] != c:
+#             reponse += f"{c}" 
+#     print(reponse)
+
+
+# transform("AAABBC")
 # -------------------------------------------------------------------------------
+# Exercice 2 : Sous-liste maximale croissante
 
-# -------------------------------------------------------------------------------
+# Écris une fonction qui prend une liste de nombres entiers et retourne la plus longue sous-liste strictement croissante 
+# (éléments consécutifs dans la liste, pas une sous-séquence).
 
-# -------------------------------------------------------------------------------
+# Exemple : [1, 2, 3, 1, 2, 3, 4, 5, 0, 2, 3] → [1, 2, 3, 4, 5] (longueur 5)
+
+# Autre exemple : [5, 4, 3, 2, 1] → [5] (longueur 1)
+
+# liste = [1, 2, 3, 1, 2, 3, 4, 5, 0, 2, 3]
+
+# def fonct(liste):
+#     reponse = []
+#     reponseFinal = []
+#     for n in range(0, len(liste)-1):
+#         if liste[n] < liste[n+1]:
+#             reponse.append(liste[n])
+#         if len(reponse) > len(reponseFinal):
+#             reponseFinal = reponse.copy()
+#             reponse = []
+
+#     print(reponseFinal)
+# fonct(liste)
+
 # -------------------------------------------------------------------------------
 
 # -------------------------------------------------------------------------------
