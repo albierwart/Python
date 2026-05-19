@@ -778,10 +778,283 @@ cible = 9
 #     return print(listDivCommunt.pop())
 # pgcd(48,18)
 
-# ------------------------------------------------------------------------------------------------------------
+# # ------------------------------------------------------------------------------------------------------------
+# Exercice 1
+
+# Crée un dictionnaire vide. Ajoute-y trois paires : "nom" → "Alice", "age" → 25, "ville" → "Paris". Affiche le dictionnaire.
+# Exercice 2
+
+# À partir du dictionnaire de l'exercice 1, affiche la valeur associée à la clé "nom". Puis affiche la valeur associée à la clé "age".
+
+# dico = {}
+# dico ["nom"] = "alice"
+# dico["age"] = 25
+# dico["ville"] = "paris"
+
+# print(dico["nom"])
+# # print(dico["age"])
+
+# Exercice 3
+# Crée un dictionnaire des capitales : "France" → "Paris", "Allemagne" → "Berlin", "Italie" → "Rome". Demande un pays à l'utilisateur
+#  et affiche sa capitale. Si le pays n'est pas dans le dictionnaire, affiche "Pays non trouvé".
+
+# dico = {"france" : "paris",
+#         "allemagne" : "berlin",
+#         "italie" : "rome"
+#         }
+# demande = input("donnez un pays ")
+# if demande not in dico:
+#     print("pays pas dans dico")
+# else:
+#     print(dico[demande])
+
+# Exercice 4
+
+# Crée un dictionnaire contenant les notes de trois étudiants : 
+# "Alice": 15, "Bob": 12, "Charlie": 18. Affiche le nom de l'étudiant qui a la meilleure note.
+
+# dico = {"alice" : 15,
+#         "bob" : 12,
+#         "charlie" : 18}
+# max = 0
+# etudiant = ""
+# for cle, valeur in dico.items():
+#     if valeur > max:
+#         max = valeur
+#         etudiant = cle
+# print(etudiant)
+
 
 # ------------------------------------------------------------------------------------------------------------
+# Bloc 2 : Parcours et manipulation (Exercices 5 à 8)
+# Exercice 5
 
+# Crée un dictionnaire {"pomme": 3, "banane": 5, "orange": 2}. Parcours le dictionnaire et affiche chaque paire sous la forme "fruit : quantité".
+# dico = {"pomme": 3, "banane": 5, "orange": 2}
+
+# for cle, valeur in dico.items():
+#     print(f"{cle} : {valeur}")
+# ------------------------------------------------------------------------------------------------------------
+
+# Exercice 6
+# Crée un dictionnaire avec 5 paires (clés et valeurs de ton choix). 
+# Affiche toutes les clés sur une ligne.
+#  Affiche toutes les valeurs sur une autre ligne.
+# dico = {"pomme": 3, "banane": 5, "orange": 2, "noix": 10, "fraise": 15}
+# for cle in dico.keys():
+#     print(cle, end =" ")
+# print()
+# for valeur in dico.values():
+#     print(valeur, end=" ")
+
+# ------------------------------------------------------------------------------------------------------------
+# Exercice 7
+# Crée un dictionnaire {"a": 1, "b": 2, "c": 3, "d": 4, "e": 5}. 
+# Crée une nouvelle liste qui contient uniquement les clés dont la valeur est supérieure à 3.
+#  Affiche cette liste.
+# dico = {"a": 1, "b": 2, "c": 3, "d": 4, "e": 5}
+# liste=[]
+# for cle, valeur in dico.items():
+#     if valeur > 3:
+#         liste.append(cle)
+# print(liste)
+
+# ------------------------------------------------------------------------------------------------------------
+# Exercice 8
+# Crée un dictionnaire {"x": 10, "y": 20, "z": 30}.
+#  Demande une clé à l'utilisateur. 
+# Si la clé existe, affiche sa valeur. 
+# Sinon, affiche "Clé inexistante" et ajoute cette clé avec la valeur 0.
+
+# dico = {"x": 10, "y": 20, "z": 30}
+# demande = input("donnez une lettre ")
+# if demande not in dico:
+#     dico[demande] = 0
+# else:
+#     print(f"la valeur de cette cle est {dico[demande]}")
+
+# Bloc 3 : Comptage et occurrences (Exercices 9 à 12)
+
+# ------------------------------------------------------------------------------------------------------------
+# Exercice 9
+
+# Demande une phrase à l'utilisateur. 
+# Crée un dictionnaire qui compte le nombre de fois que chaque mot apparaît (majuscules/minuscules sont ignorées).
+# Exemple : "Le chat et le chien" → {"le": 2, "chat": 1, "et": 1, "chien": 1}
+
+# texte = input("donnez une phrase " )
+# texte = texte.lower()
+# texte= texte.split()
+# dico = {}
+# for mot in texte:
+#     cpt = 0
+#     for mot2 in texte:
+#         if mot2 == mot:
+#             cpt+=1
+#     if mot not in dico:
+#         dico[mot] = cpt
+# print(dico)
+# ------------------------------------------------------------------------------------------------------------
+# Exercice 10
+
+# Demande une phrase à l'utilisateur. 
+# Crée un dictionnaire qui compte le nombre de fois que chaque lettre apparaît (ignore les espaces et la casse).
+# Exemple : "bonjour" → {"b":1, "o":2, "n":1, "j":1, "u":1, "r":1}
+# texte = input("donnez une phrase")
+# texte = texte.lower()
+# texte = texte.replace(" ", "")
+# dico = {}
+# for c in texte:
+#     cpt = 0
+#     for l in texte:
+#         if c == l :
+#             cpt+=1
+#     if c not in dico:
+#         dico[c] = cpt
+
+# ------------------------------------------------------------------------------------------------------------
+# Exercice 11
+
+# Compte combien de fois chaque nombre apparaît dans la liste [1, 2, 2, 3, 3, 3, 4, 4, 4, 4]. Affiche le dictionnaire résultat.
+# # Exemple : {1:1, 2:2, 3:3, 4:4}
+# pas fait car exactement le mm que le dix
+# ------------------------------------------------------------------------------------------------------------
+# Exercice 12
+
+# Crée un dictionnaire à partir de deux listes : une liste de clés ["nom", "age", "ville"]
+#  et une liste de valeurs ["Alice", 25, "Paris"]. Utilise zip().
+# cle = ["nom", "age", "ville"]
+# valeur = ["Alice", 25, "Paris"]
+# personne = dict(zip(cle,valeur))
+
+
+# Bloc 4 : Transformation et inversion (Exercices 13 à 16)
+
+# ------------------------------------------------------------------------------------------------------------
+# Exercice 13
+
+# Crée un dictionnaire {"a": 1, "b": 2, "c": 3}. Crée un nouveau dictionnaire où les clés et les valeurs sont inversées : {1: "a", 2: "b", 3: "c"}.
+# dico = {"a": 1, "b": 2, "c": 3}
+# dico2 ={}
+# for cle , valeur in dico.items():
+#     dico2[valeur] = cle
+# print(dico2)
+# ------------------------------------------------------------------------------------------------------------
+# Exercice 14
+
+# Crée un dictionnaire {"a": 1, "b": 2, "c": 1, "d": 3}.
+#  Inverse-le en regroupant les clés qui ont la même valeur dans une liste.
+# Exemple : {1: ["a", "c"], 2: ["b"], 3: ["d"]}
+
+# dico = {"a": 1, "b": 2, "c": 1, "d": 3}
+# dico2 = {}
+# for cle, valeur in dico.items():
+#     if valeur not in dico2:
+#         dico2[valeur] = list(cle)
+#     else:
+#         dico2[valeur].append(cle)
+# print(dico2)
+
+# ------------------------------------------------------------------------------------------------------------
+# Exercice 15
+
+# Crée un dictionnaire {"Alice": 15, "Bob": 12, "Charlie": 15, "Diana": 18}. 
+# Inverser le dictionnaire pour que les notes deviennent des clés et les noms des listes de valeurs.
+# Exemple : {15: ["Alice", "Charlie"], 12: ["Bob"], 18: ["Diana"]}
+# dico = {"Alice": 15, "Bob": 12, "Charlie": 15, "Diana": 18}
+# dico2 = {}
+# for cle, valeur in dico.items():
+#     if valeur not in dico2:
+#         dico2[valeur] = list(cle)
+#     else:
+#         dico2[valeur].append(cle)
+# print(dico2)
+
+# ------------------------------------------------------------------------------------------------------------
+# Exercice 16
+
+# Crée un dictionnaire {"a": 5, "b": 2, "c": 8, "d": 1}. 
+# Trouve la clé avec la plus grande valeur et celle avec la plus petite valeur. 
+# Affiche les deux.
+# dico = {"a": 5, "b": 2, "c": 8, "d": 1}
+# min = 9999
+# max = 0
+# cleMin = ""
+# cleMax= ""
+# for cle, valeur in dico.items():
+#     if valeur < min:
+#         min = valeur
+#         cleMin = cle
+#     if valeur > max:
+#         max = valeur
+#         cleMax = cle
+# print(f"cle max = {cleMax} et cle min = {cleMin}")
+
+# Bloc 5 : Cas avancés (Exercices 17 à 20)
+
+# ------------------------------------------------------------------------------------------------------------
+# Exercice 17
+
+# Crée un dictionnaire où les valeurs sont elles-mêmes des listes : {"A": [1, 2], "B": [3, 4], "C": [5, 6]}. 
+# Calcule la somme des valeurs de chaque liste. Affiche la clé dont la somme est la plus grande.
+
+# dico = {"A": [1, 2], "B": [3, 4], "C": [5, 6]}
+# cleMax = 0
+# for valeur in dico.values():
+#     somme = 0
+#     for i in valeur:
+#         somme+= i
+#     if somme> cleMax:
+#         cleMax = somme
+# print(cleMax)
+
+
+
+# ------------------------------------------------------------------------------------------------------------
+# Exercice 18
+
+# Crée un dictionnaire {"produit1": 10, "produit2": 25, "produit3": 15, "produit4": 30}.
+#  Multiplie toutes les valeurs par 1.20 (ajouter 20% de taxe). Affiche le dictionnaire modifié.
+
+# dico = {"produit1": 10, "produit2": 25, "produit3": 15, "produit4": 30}
+# for cle, valeur in dico.items():
+#     valeur = valeur*1.20
+#     dico[cle] = valeur
+# print(dico)
+
+# ------------------------------------------------------------------------------------------------------------
+# Exercice 19
+
+# Prends une liste de mots : ["pomme", "banane", "pomme", "orange", "banane", "banane"]. 
+# Crée un dictionnaire qui compte les occurrences.
+#  Ensuite, trouve le mot le plus fréquent.
+# liste =  ["pomme", "banane", "pomme", "orange", "banane", "banane"]
+# dico = {}
+# for mot in liste:
+#     if mot not in dico:
+#         dico[mot] = 1
+#     else:
+#         dico[mot]+=1
+# max = 0
+# for cle, valeur in dico.items():
+#     if valeur>max:
+#         max = valeur
+# for cle , valeur in dico.items():
+#     if valeur == max:
+#         print(f"reponse est {cle}")
+
+# ------------------------------------------------------------------------------------------------------------
+# Exercice 20
+
+# Crée un dictionnaire à partir d'une phrase : les clés sont les mots, les valeurs sont la longueur de chaque mot.
+# Exemple : "Le chat dort" → {"Le":2, "chat":4, "dort":4}
+
+# texte = "Le chat dort"
+# texte = texte.split()
+# dico = {}
+# for mot in texte:
+#     dico[mot] = len(mot)
+# print(dico)
 # ------------------------------------------------------------------------------------------------------------
 
 # ------------------------------------------------------------------------------------------------------------
