@@ -1056,6 +1056,99 @@ cible = 9
 #     dico[mot] = len(mot)
 # print(dico)
 # ------------------------------------------------------------------------------------------------------------
+# Exercice R1 : Compter à rebours (le plus simple)
+
+# Écris une fonction récursive compte_a_rebours(n) qui affiche les nombres de n jusqu'à 0.
+
+# Exemple : compte_a_rebours(5) affiche :
+
+# def compteRebours(nbr):
+#     if nbr == 0:
+#         print(0)
+#         return 
+#     print(nbr)
+#     compteRebours(nbr-1)
+
+# compteRebours(5)
+
+# ------------------------------------------------------------------------------------------------------------
+# Exercice R2 : Compter de 0 à n
+
+# Écris une fonction récursive compte_jusque(n) qui affiche les nombres de 0 jusqu'à n.
+
+# Exemple : compte_jusque(5) affiche :
+
+# def comteJusque(arrivee,depart =0):
+#     if depart== arrivee:
+#         print (arrivee)
+#         return    
+#     print(depart)
+#     comteJusque(arrivee, depart+1)
+# comteJusque(5)     
+
+
+# ------------------------------------------------------------------------------------------------------------
+# Exercice R3 : Factorielle (révision)
+# python
+
+# def factorielle(n):
+#     if n <= 1:
+#         return 1
+#     return n * factorielle(n-1)
+
+# Teste avec factorielle(5) (doit afficher 120).
+
+# def factorielle(n):
+#     if n <= 1:
+#         return 1
+#     return n * factorielle(n-1)
+# factorielle(5)
+
+# ------------------------------------------------------------------------------------------------------------
+
+# Exercice R4 : Afficher les étapes de la factorielle
+
+# Modifie la fonction factorielle pour qu'elle affiche le calcul étape par étape.
+
+# def factorielle(n):
+#     if n <= 1:
+#         print("appelle factorielle 1")
+#         print("retourne1")
+#         return 1
+#     print(f"appelle factorielle({n})")
+#     resultat = n * factorielle(n-1)
+#     print(f"Retourne {n} × factorielle({n-1}) = {resultat}")
+#     return resultat
+    
+# factorielle(5)
+# ------------------------------------------------------------------------------------------------------------
+# xercice R5 : Somme des entiers de 0 à n (récursive)
+
+# Écris une fonction récursive somme(n) qui calcule la somme des entiers de 0 à n.
+
+# Exemple : somme(5) = 5+4+3+2+1+0 = 15
+
+# def somme(n):
+#     if n == 0:
+#         return 0
+#     return n + somme(n-1)
+# print(somme(5))
+
+# ------------------------------------------------------------------------------------------------------------
+# Exercice R6 : Puissance récursive
+
+# Écris une fonction récursive puissance(x, n) qui calcule x^n (sans utiliser **).
+
+# Exemple : puissance(2, 5) = 32
+
+# Formule : x^n = x × x^(n-1) avec cas de base x^0 = 1
+
+# def puissance(n, puissanc):
+#     if puissanc == 0:
+#         return 1
+#     return n *puissance(n, puissanc-1)
+# print(puissance(2,5))
+# # ------------------------------------------------------------------------------------------------------------
 
 # ------------------------------------------------------------------------------------------------------------
 
