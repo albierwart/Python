@@ -249,3 +249,46 @@
 #             listeRep.append(i)
 # motVoyelle(liste)
 # print(listeRep)
+
+
+# Exercice R1 : Compter à rebours (le plus simple)
+
+# Écris une fonction récursive compte_a_rebours(n) qui affiche les nombres de n jusqu'à 0.
+
+# Exemple : compte_a_rebours(5) affiche :
+# text
+
+# 5
+# 4
+# 3
+# 2
+# 1
+# 0
+
+# def compteRebour(n):
+#     if n == 0:
+#         print(0)
+#         return 
+#     print(n)
+#     compteRebour(n -1)
+# compteRebour(5)
+
+# Exercice R2 : Compter de 0 à n
+
+# Écris une fonction récursive compte_jusque(n) qui affiche les nombres de 0 jusqu'à n.
+
+# Exemple : compte_jusque(5) affiche :
+# text
+
+# 0
+# 1
+# 2
+# 3
+# 4
+# 5
+# def compte_jusque(n):
+#     if n == n:
+#         return n
+#     compte_jusque(n -1)
+#     print(n)
+# compte_jusque(5)
