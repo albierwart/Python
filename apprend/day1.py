@@ -245,34 +245,70 @@
 #             reponse = produit
 # print(reponse)
 
-import sys
-produits = [
-    {"nom": "Nike Air Zoom", "prix": 120, "sport": "course"},
-    {"nom": "Adidas Ultraboost", "prix": 150, "sport": "course"},
-    {"nom": "Puma Runner", "prix": 90, "sport": "course"},
+# import sys
+# produits = [
+#     {"nom": "Nike Air Zoom", "prix": 120, "sport": "course"},
+#     {"nom": "Adidas Ultraboost", "prix": 150, "sport": "course"},
+#     {"nom": "Puma Runner", "prix": 90, "sport": "course"},
     
-    {"nom": "Nike Metcon", "prix": 130, "sport": "musculation"},
-    {"nom": "Reebok Nano", "prix": 110, "sport": "musculation"},
-    {"nom": "Adidas Powerlift", "prix": 100, "sport": "musculation"},
+#     {"nom": "Nike Metcon", "prix": 130, "sport": "musculation"},
+#     {"nom": "Reebok Nano", "prix": 110, "sport": "musculation"},
+#     {"nom": "Adidas Powerlift", "prix": 100, "sport": "musculation"},
     
-    {"nom": "Asics Gel Court", "prix": 80, "sport": "tennis"},
-    {"nom": "Nike Court Lite", "prix": 70, "sport": "tennis"},
+#     {"nom": "Asics Gel Court", "prix": 80, "sport": "tennis"},
+#     {"nom": "Nike Court Lite", "prix": 70, "sport": "tennis"},
     
-    {"nom": "New Balance 574", "prix": 95, "sport": "casual"},
-    {"nom": "Vans Old Skool", "prix": 75, "sport": "casual"}
-]
-sport = input("quel sport? ").lower()
-budget = int(input("quel budget "))
-reponse = None
-diff = sys.maxsize
+#     {"nom": "New Balance 574", "prix": 95, "sport": "casual"},
+#     {"nom": "Vans Old Skool", "prix": 75, "sport": "casual"}
+# ]
+# sport = input("quel sport? ").lower()
+# budget = int(input("quel budget "))
+# reponse = None
+# diff = sys.maxsize
 
-for produit in produits:
-    if produit["sport"]== sport:       
-        diffProduit = abs(produit["prix"]- budget)
-        if diffProduit < diff:
-            diff = diffProduit
-            reponse = produit
-if reponse is None:
-    print("pas de reponse")
-else:
-    print(f"Je te recommande : {reponse['nom']} à {reponse['prix']}€")
+# for produit in produits:
+#     if produit["sport"]== sport:       
+#         diffProduit = abs(produit["prix"]- budget)
+#         if diffProduit < diff:
+#             diff = diffProduit
+#             reponse = produit
+# if reponse is None:
+#     print("pas de reponse")
+# else:
+#     print(f"Je te recommande : {reponse['nom']} à {reponse['prix']}€")
+
+# import sys
+
+# def chatbot():
+#     produits = [
+#     {"nom": "Nike Air Zoom", "prix": 120, "sport": "course"},
+#     {"nom": "Adidas Ultraboost", "prix": 150, "sport": "course"},
+#     {"nom": "Puma Runner", "prix": 90, "sport": "course"},
+    
+#     {"nom": "Nike Metcon", "prix": 130, "sport": "musculation"},
+#     {"nom": "Reebok Nano", "prix": 110, "sport": "musculation"},
+#     {"nom": "Adidas Powerlift", "prix": 100, "sport": "musculation"},
+    
+#     {"nom": "Asics Gel Court", "prix": 80, "sport": "tennis"},
+#     {"nom": "Nike Court Lite", "prix": 70, "sport": "tennis"},
+    
+#     {"nom": "New Balance 574", "prix": 95, "sport": "casual"},
+#     {"nom": "Vans Old Skool", "prix": 75, "sport": "casual"}
+# ]
+#     print("bonjour je suis ton assistant chaussure")
+#     sport = input("quel sport pratiques tu? ").lower()
+#     budget = int(input("quel est ton budget?"))   
+#     reponse = None
+#     diff = sys.maxsize
+
+#     for produit in produits:
+#         diffProduit = abs(produit["prix"] - budget)
+#         if produit["sport"] == sport and diffProduit < diff:
+#             diff = diffProduit
+#             reponse = produit
+#     if reponse is None:
+#         print("pas de produit trouvé")
+#     else:
+#         print(f"je te propose {reponse['nom']} au prix de {reponse['prix']}€")
+
+# chatbot()
