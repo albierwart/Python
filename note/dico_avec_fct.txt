@@ -1,0 +1,283 @@
+# 📘 Cours : Dictionnaire de fonctions en Python
+
+---
+
+## 🧠 1. Rappel : dictionnaire classique
+
+Un dictionnaire associe une **clé** à une **valeur**.
+
+Exemple :
+
+```
+dico = {
+    "chat": "animal",
+    "pomme": "fruit"
+}
+```
+
+👉 Accès :
+
+```
+dico["chat"] → "animal"
+```
+
+---
+
+## 🔥 2. Les fonctions sont des objets
+
+En Python, une fonction peut être :
+
+* stockée dans une variable
+* passée en paramètre
+* stockée dans un dictionnaire
+
+Exemple :
+
+```
+def dire_bonjour():
+    print("bonjour")
+
+f = dire_bonjour
+f()  → affiche "bonjour"
+```
+
+👉 IMPORTANT :
+
+* `dire_bonjour` = la fonction
+* `dire_bonjour()` = exécute la fonction
+
+---
+
+## ❗ 3. Stocker une fonction dans un dictionnaire
+
+On stocke la fonction **sans parenthèses** :
+
+```
+def addition(x, y):
+    return x + y
+
+def soustraction(x, y):
+    return x - y
+
+operations = {
+    "+": addition,
+    "-": soustraction
+}
+```
+
+---
+
+## 🧠 4. Récupérer et utiliser la fonction
+
+```
+op = "+"
+fonction = operations[op]
+resultat = fonction(2, 3)
+```
+
+👉 résultat = 5
+
+---
+
+## 🎯 5. Utilisation concrète (remplacer if/elif)
+
+### ❌ Méthode classique
+
+```
+if op == "+":
+    resultat = addition(x, y)
+elif op == "-":
+    resultat = soustraction(x, y)
+```
+
+---
+
+### ✅ Méthode avec dictionnaire
+
+```
+fonction = operations[op]
+resultat = fonction(x, y)
+```
+
+👉 plus court
+👉 plus lisible
+👉 plus professionnel
+
+---
+
+## 💡 6. Exemple avec texte utilisateur
+
+```
+operations = {
+    "plus": addition,
+    "moins": soustraction
+}
+```
+
+Utilisateur :
+
+```
+"10 plus 5"
+```
+
+👉 on récupère :
+
+```
+fonction = operations["plus"]
+resultat = fonction(10, 5)
+```
+
+---
+
+## ⚠️ 7. Erreurs à éviter
+
+### ❌ Mettre des parenthèses
+
+```
+"+": addition()   ❌
+```
+
+👉 exécute la fonction immédiatement → erreur
+
+---
+
+### ❌ Clé inexistante
+
+```
+operations["fois"]
+```
+
+👉 peut provoquer une erreur si la clé n’existe pas
+
+---
+
+## 🛡️ 8. Bonne pratique
+
+Toujours vérifier :
+
+```
+if op in operations:
+    fonction = operations[op]
+```
+
+---
+
+## 🚀 9. Avantages
+
+* remplace les `if/elif`
+* code plus propre
+* plus facile à modifier
+* extensible (ajouter une opération facilement)
+
+---
+
+## 🧠 10. Résumé
+
+```
+1. stocker fonction → sans ()
+2. récupérer → dico[clé]
+3. exécuter → fonction(x, y)
+```
+
+---
+
+## 🔥 11. Niveau avancé (utile en entretien)
+
+On appelle ça :
+
+👉 "mapping de fonctions"
+👉 "dispatch table"
+
+Très utilisé en entreprise.
+
+---
+
+# ✅ Conclusion
+
+Le dictionnaire de fonctions permet de :
+
+✔ simplifier le code
+✔ améliorer la lisibilité
+✔ rendre le programme évolutif
+
+---
+
+# 🎯 Phrase à dire en entretien
+
+"J’utilise un dictionnaire de fonctions pour remplacer des conditions multiples et rendre le code plus scalable."
+
+---
+-------------------------------------------------------------------------------------------------------------------------------
+# ⚡ FICHE RAPIDE – Dictionnaire de fonctions
+
+---
+
+## 🧠 Idée clé
+
+👉 Associer une **clé** à une **fonction**
+
+```text
+"+" → addition
+"-" → soustraction
+```
+
+---
+
+## ❗ Règle importante
+
+```text
+addition      ✅ (fonction)
+addition()    ❌ (exécution)
+```
+
+---
+
+## 🔥 Utilisation
+
+```text
+fonction = dico[cle]
+resultat = fonction(x, y)
+```
+
+---
+
+## 🎯 Remplace
+
+```text
+if / elif / elif
+```
+
+---
+
+## 💡 Exemple mental
+
+```text
+operateur = "+"
+fonction = addition
+fonction(2, 3) → 5
+```
+
+---
+
+## ⚠️ À vérifier
+
+```text
+if cle in dico
+```
+
+---
+
+## 🚀 Avantages
+
+* code plus propre
+* plus rapide à écrire
+* facile à modifier
+* utilisé en entreprise
+
+---
+
+## 💼 Phrase entretien
+
+👉 "J’utilise un dictionnaire de fonctions pour éviter les if/elif et rendre le code plus scalable."
+
+---

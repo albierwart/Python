@@ -184,7 +184,17 @@
 
 # dict.fromkeys()	list(dict.fromkeys(liste))	conserve l ordre: Oui (Python 3.7+)
     
+# Si tu veux la première valeur du premier dictionnaire
+# python
 
+# ma_liste = [
+#     {"nom": "Alice", "age": 30},
+#     {"nom": "Bob", "age": 25}
+# ]
+
+# # Première valeur du premier dictionnaire
+# premiere_valeur = list(ma_liste[0].values())[0]
+# print(premiere_valeur)  # "Alice"
     
     
     

@@ -1,0 +1,14 @@
+comment reconnaître un nombre dans une liste de mots ?
+ try:
+            nombre = int(mot)
+            if nombre1 is None:
+                nombre1 = nombre
+            elif nombre2 is None:
+                nombre2 = nombre
+            else:
+                print("erreur trop de nombre")
+                break
+        except ValueError:
+            continue
+
+comment tu vas appeler la fonction depuis le dictionnaire

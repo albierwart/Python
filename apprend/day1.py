@@ -312,3 +312,379 @@
 #         print(f"je te propose {reponse['nom']} au prix de {reponse['prix']}€")
 
 # chatbot()
+
+# def chatbot():
+#     produits = [
+#     {"nom": "Nike Air Zoom", "prix": 120, "sport": "course"},
+#     {"nom": "Adidas Ultraboost", "prix": 150, "sport": "course"},
+#     {"nom": "Puma Runner", "prix": 90, "sport": "course"},
+    
+#     {"nom": "Nike Metcon", "prix": 130, "sport": "musculation"},
+#     {"nom": "Reebok Nano", "prix": 110, "sport": "musculation"},
+#     {"nom": "Adidas Powerlift", "prix": 100, "sport": "musculation"},
+    
+#     {"nom": "Asics Gel Court", "prix": 80, "sport": "tennis"},
+#     {"nom": "Nike Court Lite", "prix": 70, "sport": "tennis"},
+    
+#     {"nom": "New Balance 574", "prix": 95, "sport": "casual"},
+#     {"nom": "Vans Old Skool", "prix": 75, "sport": "casual"}
+# ]
+    
+#     phrase = input("bonjour je suis ton assistant chaussure, quel activité veux tu realiser? ")
+#     budget = int(input("quel budget as tu? "))
+#     reponse = None
+#     diff = 1000
+#     sport = None
+#     if "cour" in phrase or "course" in phrase or "running" in phrase:
+#         sport = "course"
+#     elif "muscu" in phrase:
+#         sport = "musculation"
+#     elif "tennis" in phrase:
+#         sport = "tennis"
+#     else:
+#         print("je n ai pas compris alors je te propose des chaussures casual")
+#         sport = "casual"
+#     for produit in produits:
+#         diffProduit = abs(produit["prix"] - budget)
+#         if produit["sport"] == sport and diffProduit < diff:
+#             reponse = produit
+#             diff = diffProduit
+#     if reponse is None:
+#         print("pas de produit a proposer")
+#     else:
+#         print(f"je te propose {reponse["nom"]} au prix de {reponse["prix"]}€")
+     
+
+# def chatbot():
+#     produits = [
+#     {"nom": "Nike Air Zoom", "prix": 120, "sport": "course"},
+#     {"nom": "Adidas Ultraboost", "prix": 150, "sport": "course"},
+#     {"nom": "Puma Runner", "prix": 90, "sport": "course"},
+    
+#     {"nom": "Nike Metcon", "prix": 130, "sport": "musculation"},
+#     {"nom": "Reebok Nano", "prix": 110, "sport": "musculation"},
+#     {"nom": "Adidas Powerlift", "prix": 100, "sport": "musculation"},
+    
+#     {"nom": "Asics Gel Court", "prix": 80, "sport": "tennis"},
+#     {"nom": "Nike Court Lite", "prix": 70, "sport": "tennis"},
+    
+#     {"nom": "New Balance 574", "prix": 95, "sport": "casual"},
+#     {"nom": "Vans Old Skool", "prix": 75, "sport": "casual"}
+# ]
+#     phrase = input("bonjour je suis ton assistant chaussure, quel activité veux tu realiser? ").lower()
+#     budget = int(input("quel budget as tu? "))
+#     reponse = None
+#     diff = 1000
+#     sport = None
+#     mots_course = ["cour", "run", "jogging"]
+#     mots_muscu = ["muscu", "gym", "fitness"]
+#     mots_tennis = ["tennis"]
+
+#     for mot in phrase:
+#         if mot in mots_course:
+#             sport = "course"
+#         elif mot in mots_muscu:
+#             sport = "musculation"
+#         elif mot in mots_tennis:
+#             sport = "tennis"
+#     else:
+#         sport = "casual"
+#     for produit in produits:
+#         diffProduit = abs(produit["prix"] - budget)
+#         if produit["sport"] == sport and diffProduit < diff:
+#             reponse = produit
+#             diff = diffProduit
+#     if reponse is None:
+#         print("pas de produit a proposer")
+#     else:
+#         print(f"je te propose {reponse["nom"]} au prix de {reponse["prix"]}€")
+
+# def chatbot():
+#     produits = [
+#     {"nom": "Nike Air Zoom", "prix": 120, "sport": "course"},
+#     {"nom": "Adidas Ultraboost", "prix": 150, "sport": "course"},
+#     {"nom": "Puma Runner", "prix": 90, "sport": "course"},
+    
+#     {"nom": "Nike Metcon", "prix": 130, "sport": "musculation"},
+#     {"nom": "Reebok Nano", "prix": 110, "sport": "musculation"},
+#     {"nom": "Adidas Powerlift", "prix": 100, "sport": "musculation"},
+    
+#     {"nom": "Asics Gel Court", "prix": 80, "sport": "tennis"},
+#     {"nom": "Nike Court Lite", "prix": 70, "sport": "tennis"},
+    
+#     {"nom": "New Balance 574", "prix": 95, "sport": "casual"},
+#     {"nom": "Vans Old Skool", "prix": 75, "sport": "casual"}
+# ]
+#     phrase = input("bonjour je suis ton assistant chaussure, quel activité veux tu realiser? ").lower()
+#     budget = int(input("quel budget as tu? "))
+#     reponse = None
+#     diff = 1000
+#     sport = None
+#     sports_mots = {
+#     "course": ["cour", "run", "jogging"],
+#     "musculation": ["muscu", "gym", "fitness"],
+#     "tennis": ["tennis"]
+# }
+#     trouve = False
+#     for key,liste in sports_mots.items():
+#         for mot in liste:
+#             if mot in phrase:
+#                 sport = key
+#                 trouve = True
+#                 break
+#         if trouve:
+#             break
+#     if not trouve:
+#         sport = "casual"
+
+#     for produit in produits:
+#         diffProduit = abs(produit["prix"] - budget)
+#         if produit["sport"] == sport and diffProduit < diff:
+#             reponse = produit
+#             diff = diffProduit
+#     if reponse is None:
+#         print("pas de produit a proposer")
+#     else:
+#         print(f"je te propose {reponse['nom']} au prix de {reponse['prix']}€")
+
+# def chatbot():
+#     produits = [
+#     {"nom": "Nike Air Zoom", "prix": 120, "sport": "course", "budget": "moyen"},
+#     {"nom": "Adidas Ultraboost", "prix": 150, "sport": "course", "budget": "grand"},
+#     {"nom": "Puma Runner", "prix": 90, "sport": "course", "budget": "moyen"},
+    
+#     {"nom": "Nike Metcon", "prix": 130, "sport": "musculation", "budget": "grand"},
+#     {"nom": "Reebok Nano", "prix": 110, "sport": "musculation", "budget": "moyen"},
+#     {"nom": "Adidas Powerlift", "prix": 100, "sport": "musculation", "budget": "moyen"},
+    
+#     {"nom": "Asics Gel Court", "prix": 80, "sport": "tennis", "budget": "petit"},
+#     {"nom": "Nike Court Lite", "prix": 70, "sport": "tennis", "budget": "petit"},
+    
+#     {"nom": "New Balance 574", "prix": 95, "sport": "casual", "budget": "moyen"},
+#     {"nom": "Vans Old Skool", "prix": 75, "sport": "casual", "budget": "petit"}
+# ]
+#     phrase = input("bonjour je suis ton assistant chaussure, quel activité veux tu realiser? ").lower()
+#     reponse = []
+#     sport = None
+#     sports_mots = {
+#     "course": ["cour", "run", "jogging"],
+#     "musculation": ["muscu", "gym", "fitness"],
+#     "tennis": ["tennis"]
+# }
+
+#     trouve = False
+#     for key,liste in sports_mots.items():
+#         for mot in liste:
+#             if mot in phrase:
+#                 sport = key
+#                 trouve = True
+#                 break
+#         if trouve:
+#             break
+#     if not trouve:
+#         sport = "casual"
+    
+#     budget = int(input("quel budget as tu? "))
+#     if budget < 80:
+#         budget = "petit"
+#     elif budget <121:
+#         budget = "moyen"
+#     else:
+#         budget = "grand"
+
+#     for produit in produits:        
+#         if produit["sport"] == sport and produit["budget"] == budget:
+#             reponse.append(produit)             
+    
+    
+#     if not reponse:
+#         print("pas de produit a proposer")
+#     else:
+#         print("je te propose:")
+#         for produit in reponse:
+#             print(f"-{produit['nom']} au prix de {produit['prix']}€")
+# from operator import itemgetter
+
+# def chatbot():
+#     produits = [
+#     {"nom": "Nike Air Zoom", "prix": 120, "sport": "course", "budget": "moyen"},
+#     {"nom": "Adidas Ultraboost", "prix": 150, "sport": "course", "budget": "grand"},
+#     {"nom": "Puma Runner", "prix": 90, "sport": "course", "budget": "moyen"},
+    
+#     {"nom": "Nike Metcon", "prix": 130, "sport": "musculation", "budget": "grand"},
+#     {"nom": "Reebok Nano", "prix": 110, "sport": "musculation", "budget": "moyen"},
+#     {"nom": "Adidas Powerlift", "prix": 100, "sport": "musculation", "budget": "moyen"},
+    
+#     {"nom": "Asics Gel Court", "prix": 80, "sport": "tennis", "budget": "petit"},
+#     {"nom": "Nike Court Lite", "prix": 70, "sport": "tennis", "budget": "petit"},
+    
+#     {"nom": "New Balance 574", "prix": 95, "sport": "casual", "budget": "moyen"},
+#     {"nom": "Vans Old Skool", "prix": 75, "sport": "casual", "budget": "petit"}
+# ]
+#     phrase = input("bonjour je suis ton assistant chaussure, quel activité veux tu realiser? ").lower()
+#     reponse = []
+#     sport = None
+#     sports_mots = {
+#     "course": ["cour", "run", "jogging"],
+#     "musculation": ["muscu", "gym", "fitness"],
+#     "tennis": ["tennis"]
+# }
+
+#     trouve = False
+#     for key,liste in sports_mots.items():
+#         for mot in liste:
+#             if mot in phrase:
+#                 sport = key
+#                 trouve = True
+#                 break
+#         if trouve:
+#             break
+#     if not trouve:
+#         sport = "casual"
+    
+#     budget = int(input("quel budget as tu? "))
+#     if budget < 80:
+#         budget = "petit"
+#     elif budget <121:
+#         budget = "moyen"
+#     else:
+#         budget = "grand"
+
+#     for produit in produits:        
+#         if produit["sport"] == sport and produit["budget"] == budget:
+#             reponse.append(produit)             
+    
+#     reponse.sort(key=itemgetter("prix"))
+#     if not reponse:
+#         print("pas de produit a proposer")
+#     else:
+#         print("je te propose:")
+#         for produit in reponse:
+#             print(f"-{produit['nom']} au prix de {produit['prix']}€")
+
+# from operator import itemgetter
+
+# def chatbot():
+#     produits = [
+#     {"nom": "Nike Air Zoom", "prix": 120, "sport": "course"},
+#     {"nom": "Adidas Ultraboost", "prix": 150, "sport": "course"},
+#     {"nom": "Puma Runner", "prix": 90, "sport": "course"},
+    
+#     {"nom": "Nike Metcon", "prix": 130, "sport": "musculation"},
+#     {"nom": "Reebok Nano", "prix": 110, "sport": "musculation"},
+#     {"nom": "Adidas Powerlift", "prix": 100, "sport": "musculation"},
+    
+#     {"nom": "Asics Gel Court", "prix": 80, "sport": "tennis"},
+#     {"nom": "Nike Court Lite", "prix": 70, "sport": "tennis"},
+    
+#     {"nom": "New Balance 574", "prix": 95, "sport": "casual"},
+#     {"nom": "Vans Old Skool", "prix": 75, "sport": "casual"}
+# ]
+#     phrase = input("bonjour je suis ton assistant chaussure, quel activité veux tu realiser? ").lower()
+#     reponse = []
+#     sport = None
+#     sports_mots = {
+#     "course": ["cour", "run", "jogging"],
+#     "musculation": ["muscu", "gym", "fitness"],
+#     "tennis": ["tennis"]
+# }
+
+#     trouve = False
+#     for key,liste in sports_mots.items():
+#         for mot in liste:
+#             if mot in phrase:
+#                 sport = key
+#                 trouve = True
+#                 break
+#         if trouve:
+#             break
+#     if not trouve:
+#         sport = "casual"
+    
+#     budget = int(input("quel budget as tu? "))
+#     diff = 10000000000000
+#     for produit in produits:  
+#         diffProduit = abs(produit["prix"]-budget)      
+#         if produit["sport"] == sport and diffProduit < diff:
+#             diff = diffProduit
+#             reponse.append(produit)             
+    
+#     reponse.sort(key=itemgetter("prix"))
+#     if not reponse:
+#         print("pas de produit a proposer")
+#     else:
+#         print("je te propose:")
+#         indice = 0
+#         for produit in reponse:
+#             print(f"-{produit['nom']} au prix de {produit['prix']}€")
+#             indice += 1
+#             if indice == 3:
+#                 break
+
+
+
+# from operator import itemgetter
+
+
+# def chatbot():
+#     produits = [
+#     {"nom": "Nike Air Zoom", "prix": 120, "sport": "course"},
+#     {"nom": "Adidas Ultraboost", "prix": 150, "sport": "course"},
+#     {"nom": "Puma Runner", "prix": 90, "sport": "course"},
+    
+#     {"nom": "Nike Metcon", "prix": 130, "sport": "musculation"},
+#     {"nom": "Reebok Nano", "prix": 110, "sport": "musculation"},
+#     {"nom": "Adidas Powerlift", "prix": 100, "sport": "musculation"},
+    
+#     {"nom": "Asics Gel Court", "prix": 80, "sport": "tennis"},
+#     {"nom": "Nike Court Lite", "prix": 70, "sport": "tennis"},
+    
+#     {"nom": "New Balance 574", "prix": 95, "sport": "casual"},
+#     {"nom": "Vans Old Skool", "prix": 75, "sport": "casual"}
+# ]
+#     phrase = input("bonjour je suis ton assistant chaussure, quel activité veux tu realiser? ").lower()
+#     reponses = []
+#     sport = None
+#     sports_mots = {
+#     "course": ["cour", "run", "jogging"],
+#     "musculation": ["muscu", "gym", "fitness"],
+#     "tennis": ["tennis"]
+# }
+
+#     trouve = False
+#     for key,liste in sports_mots.items():
+#         for mot in liste:
+#             if mot in phrase:
+#                 sport = key
+#                 trouve = True
+#                 break
+#         if trouve:
+#             break
+#     if not trouve:
+#         sport = "casual"
+#     for produit in produits:       
+#         if produit["sport"] == sport:
+#             reponses.append(produit)    
+    
+#     budget = int(input("quel budget as tu? "))
+
+#     for produit in reponses:
+#         produit["diff"] = abs(produit["prix"] - budget)   
+#     reponses.sort(key=itemgetter("diff"))
+#     if not reponses:
+#         print("pas de produit a proposer")
+#     else:
+#         print("je te propose:")
+#         indice = 0
+#         for produit in reponses:
+#             print(f"-{produit['nom']} au prix de {produit['prix']}€")
+#             indice += 1
+#             if indice == 3:
+#                 break
+#         meilleur_choix = reponses[0]
+#         if meilleur_choix["prix"] < budget:
+#             print(f"meilleur choix: {reponses[0]['nom']}({reponses[0]['prix']}€) car en dessous du buget ")
+#         elif meilleur_choix["prix"] == budget:
+#             print(f"meilleur choix: {reponses[0]['nom']}({reponses[0]['prix']}€) car egal au buget ")
+#         elif meilleur_choix["prix"] > budget:
+#             print(f"meilleur choix: {reponses[0]['nom']}({reponses[0]['prix']}€) au dessus du buget mais qualite meilleur ")
