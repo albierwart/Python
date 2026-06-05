@@ -292,3 +292,115 @@
 #     compte_jusque(n -1)
 #     print(n)
 # compte_jusque(5)
+
+def diviser_liste(nombres):
+    if not nombres:
+        return 0
+    resultat = nombres[0]
+    for n in nombres[1:]:
+        if n == 0:
+            raise ValueError("Division par zéro !")
+        resultat /= n
+    return resultat
+
+print(diviser_liste([100, 2, 5]))  # 10.0
+
+Tri à bulles (Bubble Sort) - Le plus simple
+python
+
+def tri_bulles(liste):
+    n = len(liste)
+    for i in range(n):
+        for j in range(n - 1 - i):
+            if liste[j] > liste[j + 1]:
+                liste[j], liste[j + 1] = liste[j + 1], liste[j]
+    return liste
+
+# Test
+liste = [64, 34, 25, 12, 22, 11, 90]
+print(tri_bulles(liste))  # [11, 12, 22, 25, 34, 64, 90]
+
+2️⃣ Tri par sélection (Selection Sort) - Pour chercher le minimum
+python
+
+def tri_selection(liste):
+    n = len(liste)
+    for i in range(n):
+        indice_min = i
+        for j in range(i + 1, n):
+            if liste[j] < liste[indice_min]:
+                indice_min = j
+        liste[i], liste[indice_min] = liste[indice_min], liste[i]
+    return liste
+
+# Test
+liste = [64, 34, 25, 12, 22, 11, 90]
+print(tri_selection(liste))  # [11, 12, 22, 25, 34, 64, 90]
+
+3️⃣ Tri par insertion (Insertion Sort) - Comme des cartes
+python
+
+def tri_insertion(liste):
+    n = len(liste)
+    for i in range(1, n):
+        cle = liste[i]
+        j = i - 1
+        while j >= 0 and liste[j] > cle:
+            liste[j + 1] = liste[j]
+            j -= 1
+        liste[j + 1] = cle
+    return liste
+
+# Test
+liste = [64, 34, 25, 12, 22, 11, 90]
+print(tri_insertion(liste))  # [11, 12, 22, 25, 34, 64, 90]
+
+4️⃣ Tri fusion (Merge Sort) - Récursif, plus rapide
+python
+
+def tri_fusion(liste):
+    if len(liste) <= 1:
+        return liste
+    
+    milieu = len(liste) // 2
+    gauche = tri_fusion(liste[:milieu])
+    droite = tri_fusion(liste[milieu:])
+    
+    return fusion(gauche, droite)
+
+def fusion(gauche, droite):
+    resultat = []
+    i, j = 0, 0
+    
+    while i < len(gauche) and j < len(droite):
+        if gauche[i] <= droite[j]:
+            resultat.append(gauche[i])
+            i += 1
+        else:
+            resultat.append(droite[j])
+            j += 1
+    
+    resultat.extend(gauche[i:])
+    resultat.extend(droite[j:])
+    return resultat
+
+# Test
+liste = [64, 34, 25, 12, 22, 11, 90]
+print(tri_fusion(liste))  # [11, 12, 22, 25, 34, 64, 90]
+
+5️⃣ Tri rapide (Quick Sort) - Le plus utilisé
+python
+
+def tri_rapide(liste):
+    if len(liste) <= 1:
+        return liste
+    
+    pivot = liste[0]
+    gauche = [x for x in liste[1:] if x <= pivot]
+    droite = [x for x in liste[1:] if x > pivot]
+    
+    return tri_rapide(gauche) + [pivot] + tri_rapide(droite)
+
+# Test
+liste = [64, 34, 25, 12, 22, 11, 90]
+print(tri_rapide(liste))  # [11, 12, 22, 25, 34, 64, 90]
