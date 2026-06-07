@@ -386,70 +386,368 @@
 
     
 
-def additionner(liste):
-    total = 0
-    for number in liste:
-        total += number
-    return total
-def soustraire(liste):
-    total = 0
-    for number in liste:
-        total -= number
-    return total
-def multiplier(liste):
-    total = 1
-    for number in liste:
-        total = total * number
-    return total
-def diviser(liste):
-    total = list[0]
-    for nombre in liste[1:]:
-        total = total / nombre
-    return total
+# def additionner(liste):
+#     total = 0
+#     for number in liste:
+#         total += number
+#     return total
+# def soustraire(liste):
+#     total = 0
+#     for number in liste:
+#         total -= number
+#     return total
+# def multiplier(x,y):
+#     return x*y
+# def diviser(x,y):
+#     return x/y
+# dico_operation = {
+#     "+": {"fonction": additionner, "priorite": 1},
+#     "-": {"fonction": soustraire, "priorite": 1},
+#     "*": {"fonction": multiplier, "priorite": 2},
+#     "/": {"fonction": diviser, "priorite": 2},
+# }  
+# dico_traducteur = {
+#     "+": "+",
+#     "plus" : "+",
+#     "additionner" : "+",
+#     "-" : "-",
+#     "soustraire" : "-",
+#     "*" : "*",
+#     "fois" : "*",
+#     "multiplier" : "*",
+#     "/" : "/",
+#     "diviser" : "/"
+# } 
+
+# def trouver_variable(liste):
+#     numbers = []
+#     operators = []
+#     for mot in liste:
+#         if mot in dico_traducteur:
+#             operators.append(dico_traducteur[mot])
+#         try:
+#             number = float(mot)
+#             numbers.append(number)
+#         except ValueError:
+#             continue
+#     for i in range(len(operators)):
+#         if dico_operation[operators[i]]['priorite'] == 2:
+#             fonction = dico_operation[operators[i]]["fonction"]
+#             resultat = fonction(numbers[i], numbers[i+1])
+#             numbers[i] = resultat
+#             del numbers[i+1]
+#             del operators[i]
+
+
+    
+
+# fonctionne = True
+# while fonctionne:
+#     phrase = input("tapez votre calcul Q pour terminer H pour historique ")
+#     phrase = phrase.lower()
+
+#     if phrase == "q" :
+#         fonctionne = False
+#     elif " " in phrase:
+#         liste_mot = phrase.split()
+#         trouver_variable(liste_mot)
+#     else:
+        # trouver_variable(phrase)
+
+
+
+# def additionner(liste):
+#     total = 0
+#     for number in liste:
+#         total += number
+#     return total
+# def soustraire(liste):
+#     total = 0
+#     for number in liste:
+#         total -= number
+#     return total
+# def multiplier(x,y):
+#     return x*y
+# def diviser(x,y):
+#     return x/y
+# dico_operation = {
+#     "+": {"fonction": additionner, "priorite": 1},
+#     "-": {"fonction": soustraire, "priorite": 1},
+#     "*": {"fonction": multiplier, "priorite": 2},
+#     "/": {"fonction": diviser, "priorite": 2},
+# }  
+# dico_traducteur = {
+#     "+": "+",
+#     "plus" : "+",
+#     "additionner" : "+",
+#     "-" : "-",
+#     "soustraire" : "-",
+#     "*" : "*",
+#     "fois" : "*",
+#     "multiplier" : "*",
+#     "/" : "/",
+#     "diviser" : "/"
+# } 
+
+
+# def additionner(liste):
+#     total = 0
+#     for number in liste:
+#         total += number
+#     return total
+# def soustraire(liste):
+#     total = 0
+#     for number in liste:
+#         total -= number
+#     return total
+# def multiplier(x,y):
+#     return x*y
+# def diviser(x,y):
+#     return x/y
+# dico_operation = {
+#     "+": {"fonction": additionner, "priorite": 1},
+#     "-": {"fonction": soustraire, "priorite": 1},
+#     "*": {"fonction": multiplier, "priorite": 2},
+#     "/": {"fonction": diviser, "priorite": 2},
+# }  
+# dico_traducteur = {
+#     "+": "+",
+#     "plus" : "+",
+#     "additionner" : "+",
+#     "-" : "-",
+#     "soustraire" : "-",
+#     "*" : "*",
+#     "fois" : "*",
+#     "multiplier" : "*",
+#     "/" : "/",
+#     "diviser" : "/"
+# } 
+
+# def trouver_variable(liste):
+#     numbers = []
+#     operators = []
+#     for mot in liste:
+#         if mot in dico_traducteur:
+#             operators.append(dico_traducteur[mot])
+#         try:
+#             number = float(mot)
+#             numbers.append(number)
+#         except ValueError:
+#             continue
+#     for i in range(len(operators)):
+#         if dico_operation[operators[i]]['priorite'] == 2:
+#             fonction = dico_operation[operators[i]]["fonction"]
+#             resultat = fonction(numbers[i], numbers[i+1])
+#             numbers[i] = resultat
+#             del numbers[i+1]
+#             del operators[i]
+
+
+    
+
+# fonctionne = True
+# while fonctionne:
+#     phrase = input("tapez votre calcul Q pour terminer H pour historique ")
+#     phrase = phrase.lower()
+
+#     if phrase == "q" :
+#         fonctionne = False
+#     elif " " in phrase:
+#         liste_mot = phrase.split()
+#         trouver_variable(liste_mot)
+#     else:
+#         trouver_variable(phrase)
+    
+
+# fonctionne = True
+# while fonctionne:
+#     phrase = input("tapez votre calcul Q pour terminer H pour historique ")
+#     phrase = phrase.lower()
+
+#     if phrase == "q" :
+#         fonctionne = False
+#     elif " " in phrase:
+#         liste_mot = phrase.split()
+#         trouver_variable(liste_mot)
+#     else:
+#         trouver_variable(phrase)
+
+
+
+# def additionner(liste):
+#     total = 0
+#     for number in liste:
+#         total += number
+#     return total
+# def soustraire(liste):
+#     total = 0
+#     for number in liste:
+#         total -= number
+#     return total
+# def multiplier(x,y):
+#     return x*y
+# def diviser(x,y):
+#     return x/y
+# dico_operation = {
+#     "+": {"fonction": additionner, "priorite": 1},
+#     "-": {"fonction": soustraire, "priorite": 1},
+#     "*": {"fonction": multiplier, "priorite": 2},
+#     "/": {"fonction": diviser, "priorite": 2},
+# }  
+# dico_traducteur = {
+#     "+": "+",
+#     "plus" : "+",
+#     "additionner" : "+",
+#     "-" : "-",
+#     "soustraire" : "-",
+#     "*" : "*",
+#     "fois" : "*",
+#     "multiplier" : "*",
+#     "/" : "/",
+#     "diviser" : "/"
+# } 
+
+# def trouver_variable(liste):
+#     numbers = []
+#     operators = []
+#     for mot in liste:
+#         if mot in dico_traducteur:
+#             operators.append(dico_traducteur[mot])
+#         try:
+#             number = float(mot)
+#             numbers.append(number)
+#         except ValueError:
+#             continue
+#     recherche = True
+#     i = 0
+#     while recherche:
+#         if dico_operation[operators[i]]['priorite'] == 2:
+#             fonction = dico_operation[operators[i]]["fonction"]
+#             resultat = fonction(numbers[i], numbers[i+1])
+#             numbers[i] = resultat
+#             del numbers[i+1]
+#             del operators[i]
+#         else:
+#             i+=1
+
+
+    
+
+# fonctionne = True
+# while fonctionne:
+#     phrase = input("tapez votre calcul Q pour terminer H pour historique ")
+#     phrase = phrase.lower()
+
+#     if phrase == "q" :
+#         fonctionne = False
+#     elif " " in phrase:
+#         liste_mot = phrase.split()
+#         trouver_variable(liste_mot)
+#     else:
+#         trouver_variable(phrase)
+
+
+def additionner(x, y):
+    return x + y
+
+def soustraire(x, y):
+    return x - y
+
+def multiplier(x, y):
+    return x * y
+
+def diviser(x, y):
+    if y == 0:
+        return "division par 0 impossible"
+    return x / y
+
+
 dico_operation = {
     "+": {"fonction": additionner, "priorite": 1},
     "-": {"fonction": soustraire, "priorite": 1},
     "*": {"fonction": multiplier, "priorite": 2},
     "/": {"fonction": diviser, "priorite": 2},
-}  
+}
+
 dico_traducteur = {
     "+": "+",
-    "plus" : "+",
-    "additionner" : "+",
-    "-" : "-",
-    "soustraire" : "-",
-    "*" : "*",
-    "fois" : "*",
-    "multiplier" : "*",
-    "/" : "/",
-    "diviser" : "/"
-} 
+    "plus": "+",
+    "additionner": "+",
+
+    "-": "-",
+    "moins": "-",
+    "soustraire": "-",
+
+    "*": "*",
+    "fois": "*",
+    "multiplier": "*",
+
+    "/": "/",
+    "diviser": "/"
+}
+
 
 def trouver_variable(liste):
     numbers = []
     operators = []
+
     for mot in liste:
         if mot in dico_traducteur:
             operators.append(dico_traducteur[mot])
+
         try:
             number = float(mot)
             numbers.append(number)
         except ValueError:
-            continue
-    for i in range(operators):
-        
+            pass
 
-    
+    # Première passe : * et /
+    i = 0
+    while i < len(operators):
+
+        if dico_operation[operators[i]]["priorite"] == 2:
+
+            fonction = dico_operation[operators[i]]["fonction"]
+
+            resultat = fonction(numbers[i], numbers[i + 1])
+
+            if resultat == "division par 0 impossible":
+                print(resultat)
+                return
+
+            numbers[i] = resultat
+
+            del numbers[i + 1]
+            del operators[i]
+
+        else:
+            i += 1
+
+    # Deuxième passe : + et -
+    i = 0
+    while len(operators) > 0:
+
+        fonction = dico_operation[operators[i]]["fonction"]
+
+        resultat = fonction(numbers[i], numbers[i + 1])
+
+        numbers[i] = resultat
+
+        del numbers[i + 1]
+        del operators[i]
+
+    print("Résultat :", numbers[0])
+
 
 fonctionne = True
-while fonctionne:
-    phrase = input("tapez votre calcul Q pour terminer H pour historique ")
-    phrase = phrase.lower()
 
-    if phrase == "q" :
+while fonctionne:
+
+    phrase = input("Tapez votre calcul (Q pour quitter) : ").lower()
+
+    if phrase == "q":
         fonctionne = False
-    elif " " in phrase:
+
+    else:
         liste_mot = phrase.split()
         trouver_variable(liste_mot)
-    else:
-        trouver_variable(phrase)

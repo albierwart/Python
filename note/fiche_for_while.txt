@@ -1,0 +1,127 @@
+Fiche Mémo : Choisir entre for et while
+1. Utiliser for
+Règle générale
+
+Utiliser for lorsque je parcours une collection ou lorsque le nombre d'itérations est connu à l'avance.
+
+Cas typiques
+
+Parcourir une liste :
+
+for produit in produits:
+    print(produit)
+
+Parcourir une chaîne :
+
+for lettre in mot:
+    print(lettre)
+
+Répéter un nombre fixe de fois :
+
+for i in range(10):
+    print(i)
+À retenir
+
+✅ Je connais le nombre d'itérations.
+
+✅ Je parcours une collection existante.
+
+✅ La taille de la collection ne change pas pendant la boucle.
+
+2. Utiliser while
+Règle générale
+
+Utiliser while lorsque le nombre d'itérations n'est pas connu à l'avance ou lorsque la boucle dépend d'une condition.
+
+Cas typiques
+
+Menu utilisateur :
+
+while choix != "q":
+    choix = input()
+
+Validation d'une saisie :
+
+while age < 0:
+    age = int(input())
+
+Traitement jusqu'à ce qu'une liste soit vide :
+
+while len(liste) > 0:
+    ...
+À retenir
+
+✅ Le nombre d'itérations est inconnu.
+
+✅ Je continue tant qu'une condition est vraie.
+
+✅ Je modifie la structure de la collection pendant le traitement.
+
+3. Modification d'une liste : attention
+Cas généralement sûr avec for
+
+Modification des valeurs sans changer la taille :
+
+for i in range(len(liste)):
+    liste[i] = liste[i] * 2
+
+La taille de la liste reste identique.
+
+Cas dangereux avec for
+
+Suppression d'éléments :
+
+for i in range(len(liste)):
+    del liste[i]
+
+Ajout d'éléments :
+
+for element in liste:
+    liste.append(10)
+
+Les indices changent pendant le parcours.
+
+4. Règle pratique à retenir
+Utiliser for si :
+
+Je parcours une collection telle qu'elle est.
+
+Utiliser while si :
+
+Je travaille jusqu'à ce qu'une condition soit satisfaite.
+
+ou
+
+J'ajoute ou je supprime des éléments dans la collection que je suis en train de traiter.
+
+5. Exemple concret : calculateur avec priorités
+
+On a :
+
+numbers = [10, 2, 3]
+operators = ["+", "*"]
+
+Après le calcul :
+
+2 * 3 = 6
+
+on fait :
+
+numbers[1] = 6
+del numbers[2]
+del operators[1]
+
+La taille des listes change.
+
+➡️ Ici, while est plus adapté que for.
+
+Résumé ultra-court
+FOR
+- nombre d'itérations connu
+- parcours simple d'une collection
+- pas de suppression/ajout d'éléments
+
+WHILE
+- nombre d'itérations inconnu
+- dépend d'une condition
+- ajout ou suppression d'éléments pendant le traitement
