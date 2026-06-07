@@ -647,6 +647,163 @@
 #         trouver_variable(phrase)
 
 
+# def additionner(x, y):
+#     return x + y
+
+# def soustraire(x, y):
+#     return x - y
+
+# def multiplier(x, y):
+#     return x * y
+
+# def diviser(x, y):
+#     if y == 0:
+#         return "division par 0 impossible"
+#     return x / y
+
+
+# dico_operation = {
+#     "+": {"fonction": additionner, "priorite": 1},
+#     "-": {"fonction": soustraire, "priorite": 1},
+#     "*": {"fonction": multiplier, "priorite": 2},
+#     "/": {"fonction": diviser, "priorite": 2},
+# }
+
+# dico_traducteur = {
+#     "+": "+",
+#     "plus": "+",
+#     "additionner": "+",
+
+#     "-": "-",
+#     "moins": "-",
+#     "soustraire": "-",
+
+#     "*": "*",
+#     "fois": "*",
+#     "multiplier": "*",
+
+#     "/": "/",
+#     "diviser": "/"
+# }
+
+
+# def trouver_variable(liste):
+#     numbers = []
+#     operators = []
+
+#     for mot in liste:
+#         if mot in dico_traducteur:
+#             operators.append(dico_traducteur[mot])
+
+#         try:
+#             number = float(mot)
+#             numbers.append(number)
+#         except ValueError:
+#             pass
+
+#     # Première passe : * et /
+#     i = 0
+#     while i < len(operators):
+
+#         if dico_operation[operators[i]]["priorite"] == 2:
+
+#             fonction = dico_operation[operators[i]]["fonction"]
+
+#             resultat = fonction(numbers[i], numbers[i + 1])
+
+#             if resultat == "division par 0 impossible":
+#                 print(resultat)
+#                 return
+
+#             numbers[i] = resultat
+
+#             del numbers[i + 1]
+#             del operators[i]
+
+#         else:
+#             i += 1
+
+#     # Deuxième passe : + et -
+#     i = 0
+#     while len(operators) > 0:
+
+#         fonction = dico_operation[operators[i]]["fonction"]
+
+#         resultat = fonction(numbers[i], numbers[i + 1])
+
+#         numbers[i] = resultat
+
+#         del numbers[i + 1]
+#         del operators[i]
+
+#     print("Résultat :", numbers[0])
+
+
+# fonctionne = True
+
+# while fonctionne:
+
+#     phrase = input("Tapez votre calcul (Q pour quitter) : ").lower()
+
+#     if phrase == "q":
+#         fonctionne = False
+
+#     else:
+#         liste_mot = phrase.split()
+#         trouver_variable(liste_mot)
+# def additionner(x, y):
+#     return x + y
+
+# def soustraire(x, y):
+#     return x - y
+
+# def multiplier(x, y):
+#     return x * y
+
+# def diviser(x, y):
+#     if y == 0:
+#         return "division par 0 impossible"
+#     return x / y
+# dico_operation = {
+#     "+": {"fonction": additionner, "priorite": 1},
+#     "-": {"fonction": soustraire, "priorite": 1},
+#     "*": {"fonction": multiplier, "priorite": 2},
+#     "/": {"fonction": diviser, "priorite": 2},
+# }
+# def trouver_variable(liste_mot):
+#     print("ok")
+
+# def lire_string(mot):
+#     liste_mot = []
+#     nombre = ""
+#     if  mot == ""  or mot[0] in dico_operation or mot[len(mot)-1] in dico_operation:
+#         print("mauvaise entree")
+#         return
+#     else:
+#         for i in range(len(mot)-1):
+#             if mot[i] in dico_operation and mot[i+1] in dico_operation:
+#                 print("mauvaise entree")
+#                 return
+#         for lettre in mot:
+#             if lettre not in dico_operation:
+#                 nombre = nombre + lettre
+#                 continue
+#             else:
+#                 liste_mot.append(nombre)
+#                 liste_mot.append(lettre)
+#                 nombre = ""
+#                 continue
+#     try:
+#         number = float(nombre)
+#         liste_mot.append(nombre)
+#         trouver_variable(liste_mot)
+#     except ValueError:
+#         print("entree non correcte")
+#         return
+#     print(liste_mot)
+#     print(nombre)  
+# lire_string("34+")
+    # -----------------------------------------------------------------------------------------
 def additionner(x, y):
     return x + y
 
@@ -738,16 +895,48 @@ def trouver_variable(liste):
 
     print("Résultat :", numbers[0])
 
+def test_string(mot):
+    liste_mot = []
+    nombre = ""
+    if  mot == ""  or mot[0] in dico_operation or mot[len(mot)-1] in dico_operation:
+        return 
+    else:
+        for i in range(len(mot)-1):
+            if mot[i] in dico_operation and mot[i+1] in dico_operation:
+                return 
+        for lettre in mot:
+            if lettre not in dico_operation:
+                nombre = nombre + lettre
+                continue
+            else:
+                liste_mot.append(nombre)
+                liste_mot.append(lettre)
+                nombre = ""
+                continue
+    try:
+        number = float(nombre)
+        liste_mot.append(nombre)
+        return liste_mot
+    except ValueError:
+        return 
 
 fonctionne = True
 
 while fonctionne:
 
-    phrase = input("Tapez votre calcul (Q pour quitter) : ").lower()
+    reponse = input("Tapez votre calcul (Q pour quitter) : ").lower()
 
-    if phrase == "q":
+    if reponse == "q":
         fonctionne = False
-
-    else:
-        liste_mot = phrase.split()
+    
+    elif " " in reponse:
+        liste_mot = reponse.split()
         trouver_variable(liste_mot)
+    else:
+        token = test_string(reponse)
+        if token is None:
+            print("mauvaise entree")
+        else:
+            trouver_variable(token)
+        
+        
