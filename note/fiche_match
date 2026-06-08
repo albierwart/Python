@@ -1,0 +1,81 @@
+Le mot-clé match (Python 3.10+) permet de comparer une valeur à plusieurs cas possibles de manière plus lisible qu'une succession de if/elif/else.
+
+Syntaxe générale
+match valeur:
+    case cas_1:
+        instruction
+    case cas_2:
+        instruction
+    case _:
+        instruction_par_defaut
+
+Le caractère _ représente le cas par défaut (équivalent de else).
+
+Exemple simple
+jour = "lundi"
+
+match jour:
+    case "lundi":
+        print("Début de semaine")
+    case "vendredi":
+        print("Fin de semaine")
+    case _:
+        print("Autre jour")
+Plusieurs valeurs possibles
+
+Utiliser l'opérateur | (OU).
+
+jour = "samedi"
+
+match jour:
+    case "samedi" | "dimanche":
+        print("Week-end")
+    case _:
+        print("Semaine")
+Utilisation avec des nombres
+note = 15
+
+match note:
+    case 20:
+        print("Excellent")
+    case 15:
+        print("Très bien")
+    case _:
+        print("Autre note")
+Conditions supplémentaires (Guard)
+
+Ajouter une condition avec if.
+
+age = 20
+
+match age:
+    case x if x >= 18:
+        print("Majeur")
+    case _:
+        print("Mineur")
+Correspondance avec une liste
+data = [1, 2]
+
+match data:
+    case [1, 2]:
+        print("Liste exacte")
+    case [1, x]:
+        print(f"Deuxième valeur : {x}")
+Correspondance avec un tuple
+point = (10, 20)
+
+match point:
+    case (0, 0):
+        print("Origine")
+    case (x, y):
+        print(f"Point ({x}, {y})")
+À retenir
+Disponible depuis Python 3.10.
+Utilise les mots-clés match et case.
+_ correspond au cas par défaut.
+| permet de tester plusieurs valeurs.
+Compatible avec les listes, tuples et structures complexes.
+Peut intégrer des conditions avec if.
+Astuce
+
+Utiliser match lorsque plusieurs cas doivent être testés sur une même variable. Pour quelques conditions simples, if/elif/else reste souvent suffisant.
