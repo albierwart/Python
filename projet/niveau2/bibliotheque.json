@@ -1,0 +1,12 @@
+[
+    {
+        "titre": "Le Petit Prince",
+        "auteur": "Antoine de Saint-Exupéry",
+        "disponible": true
+    },
+    {
+        "titre": "Dune",
+        "auteur": "Frank Herbert",
+        "disponible": false
+    }
+]
