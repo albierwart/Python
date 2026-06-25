@@ -24,44 +24,44 @@
 #     print(f"you love score is {accurent_true}{accurent_love}%")
 
 
-# calculate_love_score()
-letters = [
-    "a","b","c","d","e","f","g","h","i","j","k","l","m",
-    "n","o","p","q","r","s","t","u","v","w","x","y","z"
-]
+# # calculate_love_score()
+# letters = [
+#     "a","b","c","d","e","f","g","h","i","j","k","l","m",
+#     "n","o","p","q","r","s","t","u","v","w","x","y","z"
+# ]
+# # def encrypt(message, shift):
+# #     liste_index=[]
+
+# #     for letter in message:
+# #         liste_index.append(letters.index(letter))
+
+# #     for i in range(len(liste_index)):
+# #         liste_index[i] = liste_index[i] + shift
+
+# #     mot = ""
+# #     for num in liste_index:
+# #         mot = mot+letters[num]
+# #     print(f"here is the encoded result: {mot}")
+
 # def encrypt(message, shift):
-#     liste_index=[]
+#     cipher_text = ""
 
 #     for letter in message:
-#         liste_index.append(letters.index(letter))
+#         new_position = letters.index(letter) + shift
+#         if new_position > 25:
+#             new_position = new_position - 26
+#         cipher_text += letters[new_position]
+#     print(f"here is the encoded result: {cipher_text}")
+# encrypt("z",1)
 
-#     for i in range(len(liste_index)):
-#         liste_index[i] = liste_index[i] + shift
+# def decrypt(message,shift):
+#     text=""
+#     for letter in message:
+#         new_possition = letters.index(letter) - shift
+#         if new_possition < 0:
+#             new_position = new_possition + 26
+#         text += letters[new_possition]
 
-#     mot = ""
-#     for num in liste_index:
-#         mot = mot+letters[num]
-#     print(f"here is the encoded result: {mot}")
+#     print(f"here is the decoded result: {text}")
 
-def encrypt(message, shift):
-    cipher_text = ""
-
-    for letter in message:
-        new_position = letters.index(letter) + shift
-        if new_position > 25:
-            new_position = new_position - 26
-        cipher_text += letters[new_position]
-    print(f"here is the encoded result: {cipher_text}")
-encrypt("z",1)
-
-def decrypt(message,shift):
-    text=""
-    for letter in message:
-        new_possition = letters.index(letter) - shift
-        if new_possition < 0:
-            new_position = new_possition + 26
-        text += letters[new_possition]
-
-    print(f"here is the decoded result: {text}")
-
-decrypt("a", 1)
+# decrypt("a", 1)

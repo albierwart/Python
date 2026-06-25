@@ -65,3 +65,30 @@ liste = []
 #         print("plus petit")
 # else:
 #     print("nbr secret trouvé")
+
+travel_log = {
+    "france" : ["paris", "lille", "dijon"],
+    "germany" : ["stutgard", "berlin"]
+}
+
+for value in travel_log.values():
+    for i in range(len(value)):
+        if value[i] == "lille":
+            print(value[i])
+
+nested_list = ["a", "b", ["c", "d", ["p", "n"]]]
+
+print(nested_list[2][2][1])
+
+travel_log2 = {
+    "france": {
+        "cities_visited" : ["paris", "lille", "dijon"],
+        "total_visited" : 12
+    },
+    "germany":{
+        "cities_visited": ["berlin", "hambourg"],
+        "total_visited": 5
+    }
+}
+
+print(travel_log2["germany"]["cities_visited"][1])
